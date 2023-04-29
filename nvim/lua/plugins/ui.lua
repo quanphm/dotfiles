@@ -1,9 +1,12 @@
 return {
 	{
-		"morhetz/gruvbox",
+		"mcchrish/zenbones.nvim",
+		dependencies = {
+			"rktjmp/lush.nvim",
+		},
 		priority = 1000,
 		config = function()
-			vim.cmd.colorscheme("gruvbox")
+			vim.cmd.colorscheme("zenbones")
 		end,
 	},
 	{ "nvim-tree/nvim-web-devicons" },
@@ -12,7 +15,7 @@ return {
 		event = "VeryLazy",
 		opts = {
 			options = {
-				theme = "gruvbox",
+				theme = "auto",
 				icons_enabled = true,
 				component_separators = "|",
 				section_separators = "",

@@ -27,9 +27,11 @@ vim.keymap.set("n", "<leader>w_", "<C-w>s", { desc = "Split window horizontally"
 vim.keymap.set("n", "<leader>w|", "<C-w>v", { desc = "Split window vertically" })
 vim.keymap.set("n", "<leader>wx", ":close<CR>", { desc = "Close current split window" })
 
+vim.keymap.set("x", "<leader>p", [["_dP]])
+
 -- delete without copying into register
 vim.keymap.set("n", "x", '"_x')
-vim.keymap.set("v", "<leader>d", '"_d')
+vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 -- switch buffers
 vim.keymap.set("n", "<leader>j", "<cmd>bnext<CR>", { desc = "Next buffer" })
