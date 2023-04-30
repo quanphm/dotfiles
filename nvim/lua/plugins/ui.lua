@@ -1,12 +1,9 @@
 return {
 	{
-		"mcchrish/zenbones.nvim",
-		dependencies = {
-			"rktjmp/lush.nvim",
-		},
+		"rebelot/kanagawa.nvim",
 		priority = 1000,
 		config = function()
-			vim.cmd.colorscheme("zenbones")
+			vim.cmd.colorscheme("kanagawa-dragon")
 		end,
 	},
 	{ "nvim-tree/nvim-web-devicons" },
