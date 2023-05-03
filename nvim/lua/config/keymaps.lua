@@ -1,3 +1,5 @@
+local Utils = require("utils")
+
 -- lazy.nvim
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, { desc = "Show directory listing", silent = true })
 vim.keymap.set("n", "<leader>pr", "<Plug>NetrwRefresh")
@@ -48,3 +50,5 @@ vim.keymap.set(
 	[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
 	{ desc = "Replace word under cursor in a file" }
 )
+
+vim.keymap.set("n", "q", Utils.close_floats, { desc = "Close all float window" })
