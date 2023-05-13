@@ -3,6 +3,10 @@ vim.g.maplocalleader = " "
 vim.g.icons_enabled = false
 vim.g.highlighturl_enabled = true
 
+-- disable netrw
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 vim.opt.swapfile = false
 vim.opt.number = true -- line number
 vim.opt.relativenumber = true -- relative line number

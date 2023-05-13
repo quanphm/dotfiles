@@ -1,9 +1,8 @@
 local Utils = require("utils")
 
--- lazy.nvim
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, { desc = "Show directory listing", silent = true })
-vim.keymap.set("n", "<leader>pr", "<Plug>NetrwRefresh")
-vim.keymap.set("n", "<leader>ph", "<Plug>NetrwHideEdit")
+vim.keymap.set("n", "<leader>pv", function()
+	require("oil").open()
+end, { desc = "Show directory listing", silent = true })
 
 -- better up/down
 vim.keymap.set("n", "j", "v:count ? 'j' : 'gj'", { expr = true, silent = true })
@@ -11,6 +10,7 @@ vim.keymap.set("n", "k", "v:count ? 'k' : 'gk'", { expr = true, silent = true })
 
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+
 vim.keymap.set("n", "H", "^")
 vim.keymap.set("n", "L", "$")
 
@@ -30,10 +30,9 @@ vim.keymap.set("n", "<leader>w|", "<C-w>v", { desc = "Split window vertically" }
 vim.keymap.set("n", "<leader>wx", ":close<CR>", { desc = "Close current split window" })
 
 vim.keymap.set("x", "<leader>p", [["_dP]])
-
--- delete without copying into register
 vim.keymap.set("n", "x", '"_x')
-vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
+vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]], { noremap = true })
+vim.keymap.set("n", "dd", '"_dd')
 
 -- switch buffers
 vim.keymap.set("n", "<leader>j", "<cmd>bnext<CR>", { desc = "Next buffer" })
