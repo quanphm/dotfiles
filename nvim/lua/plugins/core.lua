@@ -7,6 +7,14 @@ return {
 		end,
 	},
 	{
+		"kylechui/nvim-surround",
+		version = "*",
+		event = "VeryLazy",
+		config = function()
+			require("nvim-surround").setup({})
+		end,
+	},
+	{
 		"windwp/nvim-spectre",
 		event = "VeryLazy",
 		keys = {
@@ -44,5 +52,11 @@ return {
 	{
 		"mbbill/undotree",
 		event = "VeryLazy",
+	},
+	{
+		"kevinhwang91/nvim-ufo",
+		dependencies = {
+			"kevinhwang91/promise-async",
+		},
 	},
 }

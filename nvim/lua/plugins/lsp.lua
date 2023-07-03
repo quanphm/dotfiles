@@ -1,6 +1,5 @@
 return {
 	{
-
 		"VonHeikemen/lsp-zero.nvim",
 		branch = "v2.x",
 		lazy = true,
@@ -108,7 +107,6 @@ return {
 		cmd = "LspInfo",
 		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
-			{ "neovim/nvim-lspconfig" },
 			{
 				"williamboman/mason.nvim",
 				build = ":MasonUpdate",
@@ -158,6 +156,18 @@ return {
 				-- end, "Workspace List Folders")
 			end)
 
+			require("ufo").setup()
+			lsp.set_server_config({
+				capabilities = {
+					textDocument = {
+						foldingRange = {
+							dynamicRegistration = false,
+							lineFoldingOnly = true,
+						},
+					},
+				},
+			})
+
 			local status, lspconfig = pcall(require, "lspconfig")
 			if not status then
 				return
@@ -175,6 +185,10 @@ return {
 							{
 								fileMatch = { "tsconfig.json", "tsconfig.*.json" },
 								url = "http://json.schemastore.org/tsconfig",
+							},
+							{
+								fileMatch = { "turbo.json" },
+								url = "https://turbo.build/schema.json",
 							},
 						},
 					},
