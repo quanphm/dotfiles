@@ -16,6 +16,7 @@ return {
 				"jsonls",
 				"rust_analyzer",
 				"gopls",
+				"svelte",
 			})
 			lsp.set_sign_icons({
 				error = "", -- xf659
@@ -39,6 +40,9 @@ return {
 						"yaml",
 						"json",
 						"jsonc",
+						"go",
+						"rust",
+						"svelte",
 					},
 				},
 			})
@@ -138,7 +142,7 @@ return {
 				end, "Goto Definition")
 				nmap("gD", vim.lsp.buf.declaration, "Goto Declaration")
 				nmap("gr", require("telescope.builtin").lsp_references, "Goto References")
-				nmap("gI", vim.lsp.buf.implementation, "Goto Implementation")
+				nmap("ii", vim.lsp.buf.implementation, "Goto Implementation")
 				nmap("<leader>D", vim.lsp.buf.type_definition, "Type Definition")
 				nmap("<leader>ds", require("telescope.builtin").lsp_document_symbols, "Document Symbols")
 				nmap("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "Workspace Symbols")

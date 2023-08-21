@@ -25,6 +25,8 @@ return {
 				"vim",
 				"dockerfile",
 				"help",
+				"go",
+				"svelte",
 			},
 			highlight = {
 				enable = true,
