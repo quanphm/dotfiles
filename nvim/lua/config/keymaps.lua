@@ -64,3 +64,5 @@ vim.keymap.set("n", "<leader>K", function()
 		vim.lsp.buf.hover()
 	end
 end)
+
+vim.keymap.set("n", "nl", "Go", { desc = "New line at the end of file", noremap = true })
