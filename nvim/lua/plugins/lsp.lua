@@ -1,51 +1,12 @@
 return {
 	{
 		"VonHeikemen/lsp-zero.nvim",
-		branch = "v2.x",
+		branch = "v3.x",
 		lazy = true,
-		config = function()
-			local lsp = require("lsp-zero")
-
-			lsp.preset("minimal")
-			lsp.ensure_installed({
-				"html",
-				"cssls",
-				"tailwindcss",
-				"tsserver",
-				"lua_ls",
-				"jsonls",
-				"rust_analyzer",
-				"gopls",
-				"svelte",
-			})
-			lsp.set_sign_icons({
-				error = "", -- xf659
-				warn = "", -- xf529
-				hint = "", -- xf835
-				info = "", -- xf7fc
-			})
-			lsp.format_on_save({
-				format_opts = {
-					timeout_ms = 10000,
-				},
-				servers = {
-					["null-ls"] = {
-						"javascript",
-						"javascriptreact",
-						"typescript",
-						"typescriptreact",
-						"html",
-						"css",
-						"lua",
-						"yaml",
-						"json",
-						"jsonc",
-						"go",
-						"rust",
-						"svelte",
-					},
-				},
-			})
+		config = false,
+		init = function()
+			vim.g.lsp_zero_extend_cmp = 0
+			vim.g.lsp_zero_extend_lspconfig = 0
 		end,
 	},
 	{
@@ -65,9 +26,7 @@ return {
 		config = function()
 			local cmp = require("cmp")
 			local cmp_select = { behavior = cmp.SelectBehavior.Select }
-
 			require("luasnip.loaders.from_vscode").lazy_load()
-
 			cmp.setup({
 				snippet = {
 					expand = function(args)
@@ -107,27 +66,46 @@ return {
 		end,
 	},
 	{
+		"williamboman/mason.nvim",
+		lazy = false,
+		config = true,
+	},
+	{
 		"neovim/nvim-lspconfig",
-		cmd = "LspInfo",
+		cmd = { "LspInfo", "LspStart", "LspInstall" },
 		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
-			{
-				"williamboman/mason.nvim",
-				build = ":MasonUpdate",
-			},
 			{ "williamboman/mason-lspconfig.nvim" },
 			{ "folke/neodev.nvim" },
 		},
 		config = function()
-			require("neodev").setup({})
-			local lsp = require("lsp-zero")
+			local lsp_zero = require("lsp-zero")
+			lsp_zero.extend_lspconfig()
 
-			local function on_list(options)
-				vim.fn.setqflist({}, " ", options)
-				vim.api.nvim_command("cfirst")
-			end
+			-- lsp_zero.format_on_save({
+			-- 	format_opts = {
+			-- 		timeout_ms = 10000
+			-- 	},
+			-- 	servers = {
+   --        ["rust_analyzer"] = {"rust"},
+   --        ["gopls"] = {"go","gomod", "gowork", "gotmpl"},
+			-- 		["prettierd"] = {
+			-- 			"javascript",
+			-- 			"javascriptreact",
+			-- 			"typescript",
+			-- 			"typescriptreact",
+			-- 			"html",
+			-- 			"css",
+			-- 			"yaml",
+			-- 			"json",
+			-- 			"svelte",
+			-- 		},
+   --        ["stylua"] = {"lua", "luau"}
+			-- 	},
+			-- })
 
-			lsp.on_attach(function(_, bufnr)
+
+			lsp_zero.on_attach(function(_, bufnr)
 				local nmap = function(keys, funcs, desc)
 					if desc then
 						desc = "LSP: " .. desc
@@ -138,7 +116,7 @@ return {
 				nmap("<leader>rn", vim.lsp.buf.rename, "Rename")
 				nmap("<leader>ca", vim.lsp.buf.code_action, "Code Action")
 				nmap("gd", function()
-					vim.lsp.buf.definition({ reuse_win = true, on_list = on_list })
+					vim.lsp.buf.definition({ reuse_win = true })
 				end, "Goto Definition")
 				nmap("gD", vim.lsp.buf.declaration, "Goto Declaration")
 				nmap("gr", require("telescope.builtin").lsp_references, "Goto References")
@@ -151,17 +129,63 @@ return {
 				nmap("[d", vim.diagnostic.goto_prev, "Go to previous diagnostic message")
 				nmap("]d", vim.diagnostic.goto_next, "Go to next diagnostic message")
 				nmap("<leader>e", vim.diagnostic.open_float, "Open floating diagnostic message")
-
-				-- workspace
-				-- nmap("<leader>wa", vim.lsp.buf.add_workspace_folder, "Workspace Add Folder")
-				-- nmap("<leader>wr", vim.lsp.buf.remove_workspace_folder, "Workspace Remove Folder")
-				-- nmap("<leader>wl", function()
-				-- 	print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-				-- end, "Workspace List Folders")
 			end)
 
+			require("neodev").setup({})
+			local lspconfig = require("lspconfig")
+
+			require("mason-lspconfig").setup({
+				ensure_installed = {
+					"html",
+					"cssls",
+					"tailwindcss",
+					"tsserver",
+					"lua_ls",
+					"jsonls",
+					"rust_analyzer",
+					"gopls",
+					"svelte",
+				},
+				handlers = {
+					lsp_zero.default_setup,
+					lua_ls = function()
+						lspconfig.lua_ls.setup(lsp_zero.nvim_lua_ls())
+					end,
+					jsonls = function()
+						lspconfig.jsonls.setup({
+							settings = {
+								json = {
+									schemas = {
+										{
+											fileMatch = { "package.json" },
+											url = "https://json.schemastore.org/package.json",
+										},
+										{
+											fileMatch = { "tsconfig.json", "tsconfig.*.json" },
+											url = "http://json.schemastore.org/tsconfig",
+										},
+										{
+											fileMatch = { "turbo.json" },
+											url = "https://turbo.build/schema.json",
+										},
+									},
+								},
+							},
+						})
+					end,
+				},
+			})
+
+			lsp_zero.set_sign_icons({
+				error = "", -- xf659
+				warn = "", -- xf529
+				hint = "", -- xf835
+				info = "", -- xf7fc
+			})
+
+
 			require("ufo").setup()
-			lsp.set_server_config({
+			lsp_zero.set_server_config({
 				capabilities = {
 					textDocument = {
 						foldingRange = {
@@ -172,63 +196,8 @@ return {
 				},
 			})
 
-			local status, lspconfig = pcall(require, "lspconfig")
-			if not status then
-				return
-			end
-
-			lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
-			lspconfig.jsonls.setup({
-				settings = {
-					json = {
-						schemas = {
-							{
-								fileMatch = { "package.json" },
-								url = "https://json.schemastore.org/package.json",
-							},
-							{
-								fileMatch = { "tsconfig.json", "tsconfig.*.json" },
-								url = "http://json.schemastore.org/tsconfig",
-							},
-							{
-								fileMatch = { "turbo.json" },
-								url = "https://turbo.build/schema.json",
-							},
-						},
-					},
-				},
-			})
-
-			lsp.setup()
-
 			vim.diagnostic.config({
 				virtual_text = false,
-			})
-		end,
-	},
-	{
-		"jose-elias-alvarez/null-ls.nvim",
-		event = { "BufReadPre", "BufNewFile" },
-		dependencies = {
-			"williamboman/mason.nvim",
-			"jay-babu/mason-null-ls.nvim",
-		},
-		config = function()
-			local null_ls = require("null-ls")
-			null_ls.setup({
-				sources = {
-					null_ls.builtins.formatting.prettierd,
-					null_ls.builtins.formatting.stylua,
-					null_ls.builtins.formatting.rustfmt,
-					null_ls.builtins.formatting.gofmt,
-					null_ls.builtins.diagnostics.eslint_d,
-				},
-			})
-
-			require("mason-null-ls").setup({
-				ensure_installed = nil,
-				automatic_installation = true,
-				automatic_setup = false,
 			})
 		end,
 	},
