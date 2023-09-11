@@ -59,4 +59,11 @@ return {
 			"kevinhwang91/promise-async",
 		},
 	},
+	{
+		"ThePrimeagen/harpoon",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+		},
+		event = "VeryLazy",
+	},
 }

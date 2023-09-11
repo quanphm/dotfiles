@@ -35,8 +35,8 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]], { noremap = true })
 vim.keymap.set("n", "dd", '"_dd')
 
 -- switch buffers
-vim.keymap.set("n", "<leader>k", "<cmd>bnext<CR>", { desc = "Next buffer" })
-vim.keymap.set("n", "<leader>j", "<cmd>bprev<CR>", { desc = "Previous buffer" })
+-- vim.keymap.set("n", "<leader>k", "<cmd>bnext<CR>", { desc = "Next buffer" })
+-- vim.keymap.set("n", "<leader>j", "<cmd>bprev<CR>", { desc = "Previous buffer" })
 vim.keymap.set("n", "<leader>bd", "<cmd>bd<CR>", { desc = "Delete buffer" })
 
 -- quit
