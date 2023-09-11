@@ -82,29 +82,6 @@ return {
 			local lsp_zero = require("lsp-zero")
 			lsp_zero.extend_lspconfig()
 
-			-- lsp_zero.format_on_save({
-			-- 	format_opts = {
-			-- 		timeout_ms = 10000
-			-- 	},
-			-- 	servers = {
-   --        ["rust_analyzer"] = {"rust"},
-   --        ["gopls"] = {"go","gomod", "gowork", "gotmpl"},
-			-- 		["prettierd"] = {
-			-- 			"javascript",
-			-- 			"javascriptreact",
-			-- 			"typescript",
-			-- 			"typescriptreact",
-			-- 			"html",
-			-- 			"css",
-			-- 			"yaml",
-			-- 			"json",
-			-- 			"svelte",
-			-- 		},
-   --        ["stylua"] = {"lua", "luau"}
-			-- 	},
-			-- })
-
-
 			lsp_zero.on_attach(function(_, bufnr)
 				local nmap = function(keys, funcs, desc)
 					if desc then
@@ -183,6 +160,28 @@ return {
 				info = "", -- xf7fc
 			})
 
+			lsp_zero.format_on_save({
+				format_opts = {
+					timeout_ms = 10000,
+				},
+				servers = {
+					["rust_analyzer"] = { "rust" },
+					["null-ls"] = {
+						"javascript",
+						"javascriptreact",
+						"typescript",
+						"typescriptreact",
+						"html",
+						"css",
+						"lua",
+						"yaml",
+						"json",
+						"jsonc",
+						"go",
+						"svelte",
+					},
+				},
+			})
 
 			require("ufo").setup()
 			lsp_zero.set_server_config({
@@ -198,6 +197,29 @@ return {
 
 			vim.diagnostic.config({
 				virtual_text = false,
+			})
+		end,
+	},
+	{
+		"jose-elias-alvarez/null-ls.nvim",
+		event = { "BufReadPre", "BufNewFile" },
+		dependencies = {
+			"jay-babu/mason-null-ls.nvim",
+		},
+		config = function()
+			local null_ls = require("null-ls")
+			null_ls.setup({
+				sources = {
+					null_ls.builtins.formatting.prettierd,
+					null_ls.builtins.formatting.stylua,
+					null_ls.builtins.formatting.gofmt,
+					null_ls.builtins.diagnostics.eslint_d,
+				},
+			})
+			require("mason-null-ls").setup({
+				ensure_installed = {},
+				automatic_installation = true,
+				automatic_setup = false,
 			})
 		end,
 	},
