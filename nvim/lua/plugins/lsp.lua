@@ -122,6 +122,7 @@ return {
 					"rust_analyzer",
 					"gopls",
 					"svelte",
+					"ocamllsp",
 				},
 				handlers = {
 					lsp_zero.default_setup,

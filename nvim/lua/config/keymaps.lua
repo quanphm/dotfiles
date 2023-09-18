@@ -21,7 +21,7 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
 -- escape insert mode
-vim.keymap.set("i", "<C-c>", "<Esc>")
+vim.keymap.set("i", "<C-c>", "<Esc>", { desc = "escape insert mode and save" })
 
 -- windows
 -- vim.keymap.set("n", "<leader>w", "<C-w>w", { desc = "Cycle through windows" })

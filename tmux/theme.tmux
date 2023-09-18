@@ -7,6 +7,7 @@ RED="#c4746e"
 GREEN="#8a9a7b"
 YELLOW="#c4b28a"
 BLUE="#8ba4b0"
+TEAL="#8ea4a2"
 
 tmux_set() {
   tmux set-option -gq "$1" "$2"
@@ -14,6 +15,7 @@ tmux_set() {
 
 tmux_set status on
 tmux_set status-style "bg=$BG,fg=$FG"
+tmux_set status-interval 2
 
 # Left side of status bar
 tmux_set status-left-style "none"
@@ -22,8 +24,8 @@ tmux_set status-left "#[fg=$BG,bg=$GREEN] #S #[fg=$GREEN,bg=$BG]"
 
 # Right side of status bar
 tmux_set status-right-style "none"
-tmux_set status-right-length 80
-tmux_set status-right "#[fg=$BLUE,bg=$BG,nobold,noitalics,nounderscore]#[fg=$BG,bg=$BLUE] %a %d %b  %H:%M "
+tmux_set status-right-length 140
+tmux_set status-right "#[fg=$TEAL,bg=$BG,nobold,noitalics,nounderscore]#[fg=$BG,bg=$TEAL] #($TMUX_PLUGIN_MANAGER_PATH/tmux-mem-cpu-load/tmux-mem-cpu-load -i 2 -a 0) #[fg=$BG,bg=$BLUE]#[fg=$BLUE,bg=$BG,nobold,noitalics,nounderscore]#[fg=$BG,bg=$BLUE] %a %d %b  %H:%M "
 
 # window
 tmux_set status-justify left
