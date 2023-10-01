@@ -43,8 +43,14 @@ return {
 		},
 	},
 	{
+		"kevinhwang91/nvim-ufo",
+		dependencies = {
+			"kevinhwang91/promise-async",
+		},
+	},
+	{
 		"lukas-reineke/indent-blankline.nvim",
-		event = { "BufReadPost", "BufNewFile" },
+		version = "2.20.8",
 		opts = {
 			show_end_of_line = true,
 		},
@@ -52,12 +58,6 @@ return {
 	{
 		"mbbill/undotree",
 		event = "VeryLazy",
-	},
-	{
-		"kevinhwang91/nvim-ufo",
-		dependencies = {
-			"kevinhwang91/promise-async",
-		},
 	},
 	{
 		"ThePrimeagen/harpoon",
