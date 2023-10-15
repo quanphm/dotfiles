@@ -27,6 +27,7 @@ return {
 				"help",
 				"go",
 				"svelte",
+				"haskell",
 			},
 			highlight = {
 				enable = true,

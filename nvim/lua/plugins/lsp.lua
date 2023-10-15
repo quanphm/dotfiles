@@ -122,7 +122,7 @@ return {
 					"rust_analyzer",
 					"gopls",
 					"svelte",
-					"ocamllsp",
+					"hls",
 				},
 				handlers = {
 					lsp_zero.default_setup,
@@ -161,30 +161,6 @@ return {
 				info = "", -- xf7fc
 			})
 
-			lsp_zero.format_on_save({
-				format_opts = {
-					timeout_ms = 10000,
-				},
-				servers = {
-					["rust_analyzer"] = { "rust" },
-					["null-ls"] = {
-						"javascript",
-						"javascriptreact",
-						"typescript",
-						"typescriptreact",
-						"html",
-						"css",
-						"lua",
-						"yaml",
-						"json",
-						"jsonc",
-						"go",
-						"svelte",
-						"ocaml",
-					},
-				},
-			})
-
 			require("ufo").setup()
 			lsp_zero.set_server_config({
 				capabilities = {
@@ -203,27 +179,41 @@ return {
 		end,
 	},
 	{
-		"jose-elias-alvarez/null-ls.nvim",
-		event = { "BufReadPre", "BufNewFile" },
-		dependencies = {
-			"jay-babu/mason-null-ls.nvim",
-		},
-		config = function()
-			local null_ls = require("null-ls")
-			null_ls.setup({
-				sources = {
-					null_ls.builtins.formatting.prettierd,
-					null_ls.builtins.formatting.stylua,
-					null_ls.builtins.formatting.gofmt,
-					null_ls.builtins.formatting.ocamlformat,
-					null_ls.builtins.diagnostics.eslint_d,
+		"stevearc/conform.nvim",
+		event = { "BufWritePre" },
+		cmd = "ConformInfo",
+		opts = {
+			formatters_by_ft = {
+				javascript = { "prettierd" },
+				javascriptreact = { "prettierd" },
+				typescript = { "prettierd" },
+				typescriptreact = { "prettierd" },
+				html = { "prettierd" },
+				css = { "prettierd" },
+				yaml = { "prettierd" },
+				json = { "prettierd" },
+				jsonc = { "prettierd" },
+				svelte = { "prettierd" },
+				lua = { "stylua" },
+				go = { "gofmt" },
+				rust = { "rustfmt" },
+				haskell = { "fourmolu" },
+			},
+			formatters = {
+				fourmolu = {
+					meta = {
+						url = "https://hackage.haskell.org/package/fourmolu-0.14.0.0",
+						description = "Fourmolu is a formatter for Haskell source code.",
+					},
+					command = "fourmolu",
+					args = { "$FILENAME" },
 				},
-			})
-			require("mason-null-ls").setup({
-				ensure_installed = {},
-				automatic_installation = true,
-				automatic_setup = false,
-			})
-		end,
+			},
+			format_on_save = {
+				timeout_ms = 500,
+				lsp_fallback = true,
+			},
+			notify_on_error = false,
+		},
 	},
 }
