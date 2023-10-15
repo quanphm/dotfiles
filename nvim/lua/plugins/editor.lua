@@ -50,9 +50,13 @@ return {
 	},
 	{
 		"lukas-reineke/indent-blankline.nvim",
-		version = "2.20.8",
+		main = "ibl",
 		opts = {
-			show_end_of_line = true,
+			indent = {
+				char = "│",
+				tab_char = "│",
+			},
+			scope = { enabled = false },
 		},
 	},
 	{
@@ -70,4 +74,5 @@ return {
 		"christoomey/vim-tmux-navigator",
 		event = "VeryLazy",
 	},
+	{ "tpope/vim-repeat", event = "VeryLazy" },
 }

@@ -22,6 +22,15 @@ return {
 			{ "onsails/lspkind.nvim" },
 			{ "L3MON4D3/LuaSnip" },
 			{ "rafamadriz/friendly-snippets" },
+			{
+				"Saecki/crates.nvim",
+				event = { "BufRead Cargo.toml" },
+				opts = {
+					src = {
+						cmp = { enabled = true },
+					},
+				},
+			},
 		},
 		config = function()
 			local cmp = require("cmp")
@@ -47,6 +56,7 @@ return {
 					{ name = "luasnip", priority = 750 },
 					{ name = "buffer", priority = 500 },
 					{ name = "path", priority = 250 },
+					{ name = "crates" },
 					{ name = "nvim_lsp_signature_help" },
 				},
 				window = {
