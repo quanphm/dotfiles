@@ -18,20 +18,22 @@ return {
 			go = { "gofmt" },
 			rust = { "rustfmt" },
 			haskell = { "fourmolu" },
+			sh = { "shellcheck" },
 		},
 		formatters = {
 			fourmolu = {
 				meta = {
-					url = "https://hackage.haskell.org/package/fourmolu-0.14.0.0",
+					url = "https://hackage.haskell.org/package/fourmolu",
 					description = "Fourmolu is a formatter for Haskell source code.",
 				},
 				command = "fourmolu",
-				args = { "$FILENAME" },
+				args = { "--stdin-input-file", "$FILENAME" },
 			},
 		},
 		format_on_save = {
 			timeout_ms = 500,
 			lsp_fallback = true,
+			async = true,
 		},
 		notify_on_error = false,
 	},

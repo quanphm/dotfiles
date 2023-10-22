@@ -133,6 +133,7 @@ return {
 					"gopls",
 					"svelte",
 					"hls",
+					"bashls",
 				},
 				handlers = {
 					lsp_zero.default_setup,
@@ -172,6 +173,7 @@ return {
 			})
 
 			require("ufo").setup()
+
 			lsp_zero.set_server_config({
 				capabilities = {
 					textDocument = {
