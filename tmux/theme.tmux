@@ -3,7 +3,6 @@
 # colours
 BG="#181616"
 FG="#c5c9c5"
-RED="#c4746e"
 GREEN="#8a9a7b"
 YELLOW="#c4b28a"
 BLUE="#8ba4b0"
@@ -36,6 +35,9 @@ tmux_set window-status-style "bg=$BG,fg=$FG"
 
 tmux_set window-status-current-style "bg=$YELLOW,fg=$BG"
 tmux_set window-status-current-format "#[bg=$YELLOW,fg=$BG]#[bg=$YELLOW,fg=$BG] #I:#W #[bg=$BG,fg=$YELLOW]"
+
+tmux_set window-style "fg=#4b5563,bg=#262626"
+tmux_set window-active-style "fg=$FG,bg=$BG"
 
 # pane
 tmux_set display-panes-colour "$FG"

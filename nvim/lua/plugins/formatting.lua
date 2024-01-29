@@ -15,8 +15,7 @@ return {
 			jsonc = { "prettierd" },
 			svelte = { "prettierd" },
 			lua = { "stylua" },
-			go = { "gofmt" },
-			rust = { "rustfmt" },
+			rust = { "rustfmt_2018" },
 			haskell = { "fourmolu" },
 			sh = { "shellcheck" },
 		},
@@ -28,6 +27,14 @@ return {
 				},
 				command = "fourmolu",
 				args = { "--stdin-input-file", "$FILENAME" },
+			},
+			rustfmt_2018 = {
+				meta = {
+					url = "https://github.com/rust-lang/rustfmt",
+					description = "A tool for formatting rust code according to style guidelines.",
+				},
+				command = "rustfmt",
+				args = { "--emit=stdout", "--edition=2018" },
 			},
 		},
 		format_on_save = {

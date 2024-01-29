@@ -75,4 +75,8 @@ return {
 		event = "VeryLazy",
 	},
 	{ "tpope/vim-repeat", event = "VeryLazy" },
+	{
+		"folke/twilight.nvim",
+		event = "VeryLazy",
+	},
 }

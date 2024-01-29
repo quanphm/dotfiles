@@ -130,7 +130,6 @@ return {
 					"lua_ls",
 					"jsonls",
 					"rust_analyzer",
-					"gopls",
 					"svelte",
 					"hls",
 					"bashls",

@@ -2,6 +2,7 @@ vim.g.mapleader = " " -- set leader key
 vim.g.maplocalleader = " "
 vim.g.icons_enabled = false
 vim.g.highlighturl_enabled = true
+vim.g.skip_ts_context_commentstring_module = true
 
 -- disable netrw
 vim.g.loaded_netrw = 1
