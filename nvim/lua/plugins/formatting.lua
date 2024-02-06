@@ -6,8 +6,6 @@ return {
 		formatters_by_ft = {
 			html = { "prettierd" },
 			css = { "prettierd" },
-			yaml = { "prettierd" },
-			json = { "prettierd" },
 			lua = { "stylua" },
 			rust = { "rustfmt_2018" },
 			haskell = { "fourmolu" },
@@ -42,7 +40,7 @@ return {
 		require("conform").setup(opts)
 
 		local get_formatter_info = require("conform").get_formatter_info
-		local filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" }
+		local filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "json", "yaml" }
 
 		for i = 1, #filetypes do
 			local ft = filetypes[i]
