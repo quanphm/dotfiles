@@ -4,16 +4,10 @@ return {
 	cmd = "ConformInfo",
 	opts = {
 		formatters_by_ft = {
-			javascript = { "prettierd" },
-			javascriptreact = { "prettierd" },
-			typescript = { "prettierd" },
-			typescriptreact = { "prettierd" },
 			html = { "prettierd" },
 			css = { "prettierd" },
 			yaml = { "prettierd" },
 			json = { "prettierd" },
-			jsonc = { "prettierd" },
-			svelte = { "prettierd" },
 			lua = { "stylua" },
 			rust = { "rustfmt_2018" },
 			haskell = { "fourmolu" },
@@ -44,4 +38,21 @@ return {
 		},
 		notify_on_error = false,
 	},
+	config = function(_, opts)
+		require("conform").setup(opts)
+
+		local get_formatter_info = require("conform").get_formatter_info
+		local filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" }
+
+		for i = 1, #filetypes do
+			local ft = filetypes[i]
+			require("conform").formatters_by_ft[ft] = function(buffnr)
+				if get_formatter_info("biome", buffnr).available then
+					return { "biome-check", "biome" }
+				else
+					return { "prettierd" }
+				end
+			end
+		end
+	end,
 }

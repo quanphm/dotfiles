@@ -49,6 +49,7 @@ vim.opt.list = true
 vim.opt.listchars:append("eol:↴")
 
 vim.opt.iskeyword:append("-")
+vim.opt.colorcolumn = "90"
 
 -- highlight yanked text for 200ms using the "Visual" highlight group
 vim.cmd([[

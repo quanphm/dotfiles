@@ -11,7 +11,6 @@ return {
 		opts = {
 			ensure_installed = {
 				"bash",
-				"c",
 				"lua",
 				"html",
 				"css",
@@ -22,11 +21,9 @@ return {
 				"json",
 				"yaml",
 				"rust",
-				"vim",
 				"dockerfile",
 				"help",
 				"go",
-				"svelte",
 				"haskell",
 			},
 			highlight = {
