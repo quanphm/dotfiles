@@ -42,13 +42,14 @@ return {
 						require("luasnip").lsp_expand(args.body)
 					end,
 				},
+				completion = { completeopt = "menu,menuone,noinsert" },
 				mapping = cmp.mapping.preset.insert({
 					["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
 					["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
 					["<C-u>"] = cmp.mapping.scroll_docs(-4),
 					["<C-d>"] = cmp.mapping.scroll_docs(4),
 					["<C-Space>"] = cmp.mapping.complete(),
-					["<C-y>"] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }),
+					["<C-y>"] = cmp.mapping.confirm({ select = true }),
 					["<C-e>"] = cmp.mapping.abort(),
 				}),
 				sources = {
@@ -64,14 +65,14 @@ return {
 					documentation = cmp.config.window.bordered(),
 					side_padding = 1,
 				},
-				formatting = {
-					fields = { "abbr", "kind", "menu" },
-					format = require("lspkind").cmp_format({
-						mode = "symbol",
-						maxwidth = 50,
-						ellipsis_char = "...",
-					}),
-				},
+				-- formatting = {
+				-- 	fields = { "abbr", "kind", "menu" },
+				-- 	format = require("lspkind").cmp_format({
+				-- 		mode = "symbol",
+				-- 		maxwidth = 50,
+				-- 		ellipsis_char = "...",
+				-- 	}),
+				-- },
 			})
 		end,
 	},
@@ -119,17 +120,21 @@ return {
 			end)
 
 			require("neodev").setup({})
+
 			local lspconfig = require("lspconfig")
+			lspconfig.rust_analyzer.setup({
+				settings = {
+					["rust-analyzer"] = {},
+				},
+			})
 
 			require("mason-lspconfig").setup({
 				ensure_installed = {
 					"html",
 					"cssls",
-					"tailwindcss",
 					"tsserver",
 					"lua_ls",
 					"jsonls",
-					"rust_analyzer",
 					"hls",
 					"bashls",
 				},
@@ -155,6 +160,10 @@ return {
 											fileMatch = { "turbo.json" },
 											url = "https://turbo.build/schema.json",
 										},
+										{
+											fileMatch = { "biome.json" },
+											url = "https://biomejs.dev/schemas/1.5.3/schema.json",
+										},
 									},
 								},
 							},
@@ -163,15 +172,7 @@ return {
 				},
 			})
 
-			lsp_zero.set_sign_icons({
-				error = "", -- xf659
-				warn = "", -- xf529
-				hint = "", -- xf835
-				info = "", -- xf7fc
-			})
-
 			require("ufo").setup()
-
 			lsp_zero.set_server_config({
 				capabilities = {
 					textDocument = {
@@ -184,7 +185,10 @@ return {
 			})
 
 			vim.diagnostic.config({
-				virtual_text = false,
+				virtual_text = {
+					severity = vim.diagnostic.severity.ERROR,
+				},
+				severity_sort = true,
 			})
 		end,
 	},

@@ -1,10 +1,12 @@
-vim.g.mapleader = " " -- set leader key
+-- Set <space> as the leader key
+vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+
 vim.g.icons_enabled = false
 vim.g.highlighturl_enabled = true
 vim.g.skip_ts_context_commentstring_module = true
 
--- disable netrw
+-- Disable netrw
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
@@ -28,10 +30,16 @@ vim.opt.autoindent = true
 vim.opt.breakindent = true
 vim.opt.expandtab = true
 vim.opt.wrap = false -- disable lines wrap
-vim.opt.cursorline = true -- highlight the text line of the cursor
+
+-- Show which line your cursor is on
+vim.opt.cursorline = true
+
 vim.opt.guicursor = ""
 vim.opt.undofile = true -- enable persistent undo
-vim.opt.updatetime = 300 -- length of time to wait before triggering the plugin
+
+-- Length of time to wait before triggering the plugin
+vim.opt.updatetime = 300
+
 vim.opt.timeout = true
 vim.opt.timeoutlen = 500
 vim.opt.foldenable = true
@@ -45,8 +53,10 @@ vim.opt.splitkeep = "screen"
 vim.opt.completeopt = "menu,menuone,noselect"
 vim.opt.backspace = "indent,eol,start"
 
-vim.opt.list = true
-vim.opt.listchars:append("eol:↴")
+-- Sets how neovim will display certain whitespace in the editor.
+--  See `:help 'list'`
+--  and `:help 'listchars'`vim.opt.list = true
+vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
 vim.opt.iskeyword:append("-")
 vim.opt.colorcolumn = "90"

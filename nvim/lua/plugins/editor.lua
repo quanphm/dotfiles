@@ -49,17 +49,6 @@ return {
 		},
 	},
 	{
-		"lukas-reineke/indent-blankline.nvim",
-		main = "ibl",
-		opts = {
-			indent = {
-				char = "│",
-				tab_char = "│",
-			},
-			scope = { enabled = false },
-		},
-	},
-	{
 		"mbbill/undotree",
 		event = "VeryLazy",
 	},
@@ -75,8 +64,4 @@ return {
 		event = "VeryLazy",
 	},
 	{ "tpope/vim-repeat", event = "VeryLazy" },
-	{
-		"folke/twilight.nvim",
-		event = "VeryLazy",
-	},
 }
