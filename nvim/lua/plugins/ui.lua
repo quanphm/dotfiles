@@ -2,7 +2,20 @@ return {
 	{
 		"rebelot/kanagawa.nvim",
 		priority = 1000,
-		config = function()
+		opts = {
+			colors = {
+				theme = {
+					dragon = {
+						ui = {
+							bg = "#030712",
+							-- bg_gutter = "none",
+						},
+					},
+				},
+			},
+		},
+		config = function(_, opts)
+			require("kanagawa").setup(opts)
 			vim.cmd.colorscheme("kanagawa-dragon")
 		end,
 	},

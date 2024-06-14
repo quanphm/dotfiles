@@ -1,0 +1,82 @@
+[env]
+TERM = "xterm-256color"
+
+[window]
+startup_mode = "Fullscreen"
+
+[window.padding]
+x = 0
+y = 0
+
+[font]
+size = 14
+
+[font.normal]
+family = "BerkeleyMono Nerd Font Mono"
+style = "Regular"
+
+[font.bold]
+family = "Berkeley Mono"
+style = "Bold"
+
+[font.italic]
+family = "Berkeley Mono"
+style = "italic"
+
+[font.bold_italic]
+family = "Berkeley Mono"
+style = "Bold Italic"
+
+[font.offset]
+x = 0
+y = 0
+
+[scrolling]
+history = 10_000
+
+[mouse]
+hide_when_typing = true
+
+[cursor.style]
+shape = "Block"
+
+[debug]
+render_timer = false
+
+[colors.primary]
+background = "#030712"
+foreground = "#d1d5db"
+
+[colors.normal]
+black = "#030712"
+red = "#d1d5db"
+green = "#d1d5db"
+yellow = "#eab308"
+blue = "#d1d5db"
+magenta = "#9ca3af"
+cyan = "#d1d5db"
+white = "#d1d5db"
+
+[colors.bright]
+black = "#030712"
+red = "#d1d5db"
+green = "#d1d5db"
+yellow = "#eab308"
+blue = "#d1d5db"
+magenta = "#9ca3af"
+cyan = "#d1d5db"
+white = "#d1d5db"
+
+[colors.cursor]
+text = "#030712"
+cursor = "#d1d5db"
+
+[[colors.indexed_colors]]
+index = 16
+color = "#ffa066"
+
+[[colors.indexed_colors]]
+index = 17
+color = "#ff5d62"
+
+
