@@ -137,6 +137,7 @@ return {
 					"jsonls",
 					"hls",
 					"bashls",
+					"svelte",
 				},
 				handlers = {
 					lsp_zero.default_setup,

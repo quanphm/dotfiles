@@ -4,9 +4,9 @@ return {
 	cmd = "ConformInfo",
 	opts = {
 		formatters_by_ft = {
-			html = { "prettier" },
-			css = { "prettier" },
-			yaml = { { "prettier", "prettierd" } },
+			html = { { "prettierd", "prettier" } },
+			css = { { "prettierd", "prettier" } },
+			yaml = { { "prettierd", "prettier" } },
 			lua = { "stylua" },
 			rust = { "rustfmt_2018" },
 			haskell = { "fourmolu" },
@@ -41,7 +41,7 @@ return {
 		require("conform").setup(opts)
 
 		local get_formatter_info = require("conform").get_formatter_info
-		local filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "json" }
+		local filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "svelte", "json" }
 
 		for i = 1, #filetypes do
 			local ft = filetypes[i]
@@ -49,7 +49,7 @@ return {
 				if get_formatter_info("biome", buffnr).available then
 					return { "biome-check", "biome" }
 				else
-					return { { "prettier", "prettierd" } }
+					return { { "prettierd", "prettier" } }
 				end
 			end
 		end
