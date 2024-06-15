@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 # colours
-BG="#030712"
+BG="#09090b"
 FG="#d1d5db"
-GRAY="#1f2937"
+GRAY="#27272a"
 YELLOW="#eab308"
 
 tmux_set() {
@@ -11,6 +11,7 @@ tmux_set() {
 }
 
 tmux_set status on
+tmux_set status-position bottom
 tmux_set status-style "bg=$BG,fg=$FG"
 tmux_set status-interval 2
 
@@ -41,10 +42,13 @@ tmux_set window-active-style "fg=$FG,bg=$BG"
 tmux_set display-panes-colour "$FG"
 tmux_set display-panes-active-colour "$YELLOW"
 
-tmux_set pane-border-style "fg=#262626,bg=#262626"
+tmux_set pane-border-style "fg=$BG,bg=#262626"
 tmux_set pane-active-border-style "fg=$YELLOW,bg=$BG"
 
 # message
 tmux_set message-style "bg=$BG,fg=$YELLOW"
+
+# selection
+tmux_set mode-style "bg=$FG,fg=$BG"
 
 # set-window-option -g clock-mode-colour colour109 #blue

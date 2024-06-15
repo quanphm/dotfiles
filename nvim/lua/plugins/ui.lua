@@ -7,8 +7,8 @@ return {
 				theme = {
 					dragon = {
 						ui = {
-							bg = "#030712",
-							-- bg_gutter = "none",
+							bg = "#09090b",
+							bg_gutter = "none",
 						},
 					},
 				},

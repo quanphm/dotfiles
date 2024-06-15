@@ -44,11 +44,11 @@ shape = "Block"
 render_timer = false
 
 [colors.primary]
-background = "#030712"
+background = "#09090b"
 foreground = "#d1d5db"
 
 [colors.normal]
-black = "#030712"
+black = "#4b5563"
 red = "#d1d5db"
 green = "#d1d5db"
 yellow = "#eab308"
@@ -58,25 +58,20 @@ cyan = "#d1d5db"
 white = "#d1d5db"
 
 [colors.bright]
-black = "#030712"
-red = "#d1d5db"
-green = "#d1d5db"
-yellow = "#eab308"
-blue = "#d1d5db"
-magenta = "#9ca3af"
-cyan = "#d1d5db"
+black = "#4b5563"
+red = '#ab4642'
+green = '#a1b56c'
+yellow = '#f7ca88'
+blue = '#7cafc2'
+magenta = '#ba8baf'
+cyan = '#86c1b9'
 white = "#d1d5db"
 
 [colors.cursor]
 text = "#030712"
 cursor = "#d1d5db"
 
-[[colors.indexed_colors]]
-index = 16
-color = "#ffa066"
-
-[[colors.indexed_colors]]
-index = 17
-color = "#ff5d62"
-
+[colors.selection]
+text = "#030712"
+background = "#d1d5db"
 
