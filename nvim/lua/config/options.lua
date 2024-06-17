@@ -59,7 +59,7 @@ vim.opt.backspace = "indent,eol,start"
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
 vim.opt.iskeyword:append("-")
-vim.opt.colorcolumn = "90"
+vim.opt.colorcolumn = "80"
 
 -- highlight yanked text for 200ms using the "Visual" highlight group
 vim.cmd([[

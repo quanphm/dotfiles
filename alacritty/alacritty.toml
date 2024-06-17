@@ -45,33 +45,33 @@ render_timer = false
 
 [colors.primary]
 background = "#09090b"
-foreground = "#d1d5db"
+foreground = "#d4d4d8"
 
 [colors.normal]
 black = "#4b5563"
-red = "#d1d5db"
-green = "#d1d5db"
+red = "#d4d4d8"
+green = "#d4d4d8"
 yellow = "#eab308"
-blue = "#d1d5db"
+blue = "#d4d4d8"
 magenta = "#9ca3af"
-cyan = "#d1d5db"
-white = "#d1d5db"
+cyan = "#d4d4d8"
+white = "#d4d4d8"
 
 [colors.bright]
 black = "#4b5563"
-red = '#ab4642'
-green = '#a1b56c'
-yellow = '#f7ca88'
-blue = '#7cafc2'
-magenta = '#ba8baf'
-cyan = '#86c1b9'
-white = "#d1d5db"
+red = "#ab4642"
+green = "#9ca3af"
+yellow = "#eab308"
+blue = "#9ca3af"
+magenta = "#9ca3af"
+cyan = "#9ca3af"
+white = "#d4d4d8"
 
 [colors.cursor]
 text = "#030712"
-cursor = "#d1d5db"
+cursor = "#d4d4d8"
 
 [colors.selection]
 text = "#030712"
-background = "#d1d5db"
+background = "#d4d4d8"
 
