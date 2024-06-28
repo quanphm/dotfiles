@@ -1,1 +1,5 @@
-vim.keymap.set("n", "<leader>gs", vim.cmd.Git, { desc = "Git: Toggle Status" })
+vim.keymap.set("n", "<leader>gs", ":Git<cr>", { desc = "Git: status", silent = true })
+vim.keymap.set("n", "<leader>ga", ":Gwrite<cr>", { desc = "Git: add current file", silent = true })
+vim.keymap.set("n", "<leader>gc", ":Git commit<cr>", { desc = "Git: commit" })
+vim.keymap.set("n", "<leader>gp", ":Git push<cr>", { desc = "Git: push", silent = true })
+vim.keymap.set("n", "<leader>gd", ":Gdiffsplit<cr>", { desc = "Git: diff", silent = true })
