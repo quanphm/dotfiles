@@ -8,7 +8,7 @@ local palette = {
 return {
 	{
 		"rebelot/kanagawa.nvim",
-		priority = 1000,
+		-- priority = 1000,
 		opts = {
 			colors = {
 				theme = {
@@ -21,32 +21,45 @@ return {
 							bg_gutter = "none",
 						},
 						syn = {
-							string = palette.neural,
-							variable = "none",
-							number = palette.fg,
-							constant = palette.fg,
-							identifier = palette.fg,
-							parameter = palette.fg,
-							fun = palette.fg,
-							type = palette.neural,
-							statement = palette.neural,
-							keyword = palette.neural,
-							operator = palette.neural,
-							preproc = palette.neural,
-							comment = palette.gray,
-							deprecated = palette.gray,
-							punct = palette.gray,
-							special1 = palette.neural,
-							special2 = palette.neural,
-							special3 = palette.neural,
+							-- string = palette.neural,
+							-- variable = "none",
+							-- number = palette.fg,
+							-- constant = palette.fg,
+							-- identifier = palette.fg,
+							-- parameter = palette.fg,
+							-- fun = palette.fg,
+							-- type = palette.neural,
+							-- statement = palette.neural,
+							-- keyword = palette.neural,
+							-- operator = palette.neural,
+							-- preproc = palette.neural,
+							-- comment = palette.gray,
+							-- deprecated = palette.gray,
+							-- punct = palette.gray,
+							-- special1 = palette.neural,
+							-- special2 = palette.neural,
+							-- special3 = palette.neural,
 						},
 					},
 				},
 			},
 		},
 		config = function(_, opts)
-			require("kanagawa").setup(opts)
-			vim.cmd.colorscheme("kanagawa-dragon")
+			-- require("kanagawa").setup(opts)
+			-- vim.cmd.colorscheme("kanagawa-dragon")
+		end,
+	},
+	{
+		"bluz71/vim-moonfly-colors",
+		name = "moonfly",
+		priority = 1000,
+		opts = {
+			bg = palette.bg,
+			black = palette.bg,
+			white = palette.fg,
+		},
+		config = function(_, opts)
+			vim.cmd.colorscheme("moonfly")
 		end,
 	},
 	{ "nvim-tree/nvim-web-devicons" },
@@ -80,5 +93,8 @@ return {
 		event = "VeryLazy",
 		enabled = true,
 		config = true,
+	},
+	{
+		"folke/zen-mode.nvim",
 	},
 }

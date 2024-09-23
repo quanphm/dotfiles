@@ -23,13 +23,11 @@ return {
 			{ "L3MON4D3/LuaSnip" },
 			{ "rafamadriz/friendly-snippets" },
 			{
-				"Saecki/crates.nvim",
-				event = { "BufRead Cargo.toml" },
-				opts = {
-					src = {
-						cmp = { enabled = true },
-					},
-				},
+				"saecki/crates.nvim",
+				tag = "stable",
+				config = function(_, opts)
+					require("crates").setup(opts)
+				end,
 			},
 		},
 		config = function()
@@ -120,6 +118,7 @@ return {
 			require("neodev").setup({})
 
 			local lspconfig = require("lspconfig")
+
 			lspconfig.rust_analyzer.setup({
 				settings = {
 					["rust-analyzer"] = {},
@@ -133,7 +132,6 @@ return {
 					"tsserver",
 					"lua_ls",
 					"jsonls",
-					"hls",
 					"bashls",
 					"svelte",
 				},
@@ -168,6 +166,15 @@ return {
 							},
 						})
 					end,
+					tsserver = function()
+						lspconfig.tsserver.setup({
+							init_options = {
+								preferences = {
+									importModuleSpecifierEnding = "minimal",
+								},
+							},
+						})
+					end,
 				},
 			})
 
@@ -185,7 +192,10 @@ return {
 
 			vim.diagnostic.config({
 				virtual_text = {
-					severity = vim.diagnostic.severity.ERROR,
+					severity = {
+						vim.diagnostic.severity.ERROR,
+						vim.diagnostic.severity.WARN,
+					},
 				},
 				severity_sort = true,
 			})

@@ -6,7 +6,7 @@ keyset("n", "<leader>pv", function()
 	require("oil").open()
 end, { desc = "Show directory listing", silent = true })
 
--- better up/down
+-- keyset up/down
 keyset("n", "j", "v:count ? 'j' : 'gj'", { expr = true, silent = true })
 keyset("n", "k", "v:count ? 'k' : 'gk'", { expr = true, silent = true })
 
@@ -15,6 +15,8 @@ keyset("v", "K", ":m '<-2<CR>gv=gv")
 
 keyset("n", "H", "^")
 keyset("n", "L", "$")
+
+keyset("n", "J", "mzJ`z")
 
 -- move up/down and center cursor
 keyset("n", "<C-d>", "<C-d>zz")
@@ -31,7 +33,10 @@ keyset("n", "<leader>w_", "<C-w>s", { desc = "Split window horizontally" })
 keyset("n", "<leader>w|", "<C-w>v", { desc = "Split window vertically" })
 keyset("n", "<leader>wx", ":close<CR>", { desc = "Close current split window" })
 
-keyset("x", "<leader>p", [["_dP]])
+keyset({ "n", "v" }, "<leader>y", [["+y]])
+keyset("n", "<leader>Y", [["+Y]])
+
+keyset("x", "<leader>p", '"_dP')
 keyset("n", "x", '"_x')
 keyset({ "n", "v" }, "<leader>d", [["_d]], { noremap = true })
 keyset("n", "dd", '"_dd')

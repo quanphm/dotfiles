@@ -1,13 +1,13 @@
 vim.keymap.set(
 	"n",
 	"<leader>q",
-	"<cmd>TroubleToggle<CR>",
+	"<cmd>Trouble diagnostics toggle<cr>",
 	{ desc = "Trouble: Show diagnostics list", silent = true, noremap = true }
 )
 
 vim.keymap.set(
 	"n",
 	"<leader>xq",
-	"<cmd>TroubleToggle quickfix<CR>",
+	"<cmd>Trouble qflist toggle<cr>",
 	{ desc = "Trouble: Quick fix", silent = true, noremap = true }
 )

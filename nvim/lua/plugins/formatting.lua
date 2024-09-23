@@ -4,36 +4,22 @@ return {
 	cmd = "ConformInfo",
 	opts = {
 		formatters_by_ft = {
-			html = { { "prettierd", "prettier" } },
-			css = { { "prettierd", "prettier" } },
-			yaml = { { "prettierd", "prettier" } },
+			html = { "prettierd", "prettier", stop_after_first = true },
+			css = { "prettierd", "prettier", stop_after_first = true },
+			yaml = { "prettierd", "prettier", stop_after_first = true },
 			lua = { "stylua" },
-			rust = { "rustfmt_2018" },
-			haskell = { "fourmolu" },
+			rust = { "rustfmt_custom" },
 			sh = { "shellcheck" },
 		},
 		formatters = {
-			fourmolu = {
-				meta = {
-					url = "https://hackage.haskell.org/package/fourmolu",
-					description = "Fourmolu is a formatter for Haskell source code.",
-				},
-				command = "fourmolu",
-				args = { "--stdin-input-file", "$FILENAME" },
-			},
-			rustfmt_2018 = {
+			rustfmt_custom = {
 				meta = {
 					url = "https://github.com/rust-lang/rustfmt",
 					description = "A tool for formatting rust code according to style guidelines.",
 				},
 				command = "rustfmt",
-				args = { "--emit=stdout", "--edition=2018" },
+				args = { "--emit=stdout", "--edition=2021" },
 			},
-		},
-		format_on_save = {
-			timeout_ms = 500,
-			lsp_fallback = true,
-			async = true,
 		},
 		notify_on_error = false,
 	},
@@ -41,7 +27,8 @@ return {
 		require("conform").setup(opts)
 
 		local get_formatter_info = require("conform").get_formatter_info
-		local filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "svelte", "json" }
+		local filetypes =
+			{ "javascript", "javascriptreact", "typescript", "typescriptreact", "svelte", "json", "jsonc", "astro" }
 
 		for i = 1, #filetypes do
 			local ft = filetypes[i]
@@ -49,7 +36,7 @@ return {
 				if get_formatter_info("biome", buffnr).available then
 					return { "biome-check", "biome" }
 				else
-					return { { "prettierd", "prettier" } }
+					return { "prettierd", "prettier", stop_after_first = true }
 				end
 			end
 		end
