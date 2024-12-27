@@ -2,6 +2,7 @@ theme = Kanagawa Dragon
 
 font-family = Departure Mono
 font-size = 14
+mouse-hide-while-typing=true
 
 keybind = ctrl+\=new_split:right
 keybind = ctrl+-=new_split:down
