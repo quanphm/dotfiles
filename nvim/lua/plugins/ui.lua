@@ -50,6 +50,18 @@ return {
 		end,
 	},
 	{
+		"rebelot/kanagawa.nvim",
+		-- priority = 1000,
+		opts = {
+			theme = "dragon",
+		},
+		config = function(_, opts)
+			-- require("kanagawa").setup(opts)
+			vim.cmd("colorscheme kanagawa-dragon")
+		end,
+	},
+
+	{
 		"bluz71/vim-moonfly-colors",
 		name = "moonfly",
 		priority = 1000,

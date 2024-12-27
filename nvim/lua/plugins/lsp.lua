@@ -129,7 +129,7 @@ return {
 				ensure_installed = {
 					"html",
 					"cssls",
-					"tsserver",
+					"ts_ls",
 					"lua_ls",
 					"jsonls",
 					"bashls",
@@ -166,8 +166,8 @@ return {
 							},
 						})
 					end,
-					tsserver = function()
-						lspconfig.tsserver.setup({
+					ts_ls = function()
+						lspconfig.ts_ls.setup({
 							init_options = {
 								preferences = {
 									importModuleSpecifierEnding = "minimal",

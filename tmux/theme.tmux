@@ -1,10 +1,15 @@
 #!/usr/bin/env bash
 
 # colours
-BG="#09090b"
-FG="#d4d4d8"
+# BG="#09090b"
+# FG="#d4d4d8"
+# YELLOW="#eab308"
+
+# colours for ghostty
+BG="#181616"
+FG="#c8c093"
 GRAY="#27272a"
-YELLOW="#eab308"
+YELLOW="#c4b28a"
 
 tmux_set() {
   tmux set-option -gq "$1" "$2"
