@@ -1,7 +1,27 @@
 theme = Kanagawa Dragon
 
-font-family = Departure Mono
-font-size = 14
+# font-family = Departure Mono
+font-family = TX-02
+font-size = 16
+font-style-italic=false
+font-style-bold-italic=false
+font-feature=-calt
+font-feature=-liga
+font-feature=-dlig
+
+shell-integration-features = no-cursor
+cursor-style=block
+cursor-style-blink=false
+scrollback-limit=500
+
+window-padding-x = 5
+window-padding-y = 1
+
+macos-titlebar-style = hidden
+window-save-state = always
+window-decoration=true
+fullscreen=true
+
 mouse-hide-while-typing=true
 
 keybind = ctrl+\=new_split:right
@@ -21,3 +41,7 @@ keybind = cmd+shift+e=equalize_splits
 keybind = cmd+shift+m=toggle_split_zoom
 
 keybind = cmd+shift+n=new_tab
+
+keybind = cmd+t=unbind
+keybind = cmd+n=unbind
+
