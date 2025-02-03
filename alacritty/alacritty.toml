@@ -9,21 +9,9 @@ padding = { x = 2, y = 2}
 size = 16
 
 [font.normal]
-# family = "BerkeleyMono Nerd Font Mono"
-family = "DepartureMono Nerd Font"
-style = "Regular"
-
-[font.bold]
-family = "Berkeley Mono"
-style = "Bold"
-
-[font.italic]
-family = "Berkeley Mono"
-style = "italic"
-
-[font.bold_italic]
-family = "Berkeley Mono"
-style = "Bold Italic"
+family = "TX Nerd Font"
+# family = "DepartureMono Nerd Font"
+# style = "Regular"
 
 [font.offset]
 x = 0

@@ -76,6 +76,13 @@ return {
 	},
 	{ "nvim-tree/nvim-web-devicons" },
 	{
+		"echasnovski/mini.icons",
+		version = "*",
+		opts = {
+			style = "glyph",
+		},
+	},
+	{
 		"nvim-lualine/lualine.nvim",
 		event = "VeryLazy",
 		opts = {
