@@ -2,10 +2,6 @@ local Utils = require("utils")
 
 local keyset = vim.keymap.set
 
-keyset("n", "<leader>pv", function()
-	require("oil").open()
-end, { desc = "Show directory listing", silent = true })
-
 -- keyset up/down
 keyset("n", "j", "v:count ? 'j' : 'gj'", { expr = true, silent = true })
 keyset("n", "k", "v:count ? 'k' : 'gk'", { expr = true, silent = true })
@@ -41,9 +37,7 @@ keyset({ "n", "v" }, "<leader>d", [["_d]], { noremap = true })
 keyset("n", "dd", '"_dd')
 
 -- switch buffers
--- keyset("n", "<leader>k", "<cmd>bnext<CR>", { desc = "Next buffer" })
--- keyset("n", "<leader>j", "<cmd>bprev<CR>", { desc = "Previous buffer" })
-keyset("n", "<leader>bd", "<cmd>bd!<CR>", { desc = "Delete buffer" })
+keyset("n", "<Space>bd", "<cmd>bd!<CR>", { desc = "Delete buffer" })
 
 -- quit
 keyset("n", "<C-q>", "<cmd>q!<CR>", { desc = "Force quit" })
@@ -57,20 +51,6 @@ keyset(
 )
 
 keyset("n", "q", Utils.close_floats, { desc = "Close all float window" })
-
-keyset("n", "zR", require("ufo").openAllFolds)
-keyset("n", "zM", require("ufo").closeAllFolds)
-keyset("n", "zr", require("ufo").openFoldsExceptKinds)
-keyset("n", "zm", require("ufo").closeFoldsWith) -- closeAllFolds == closeFoldsWith(0)
-keyset("n", "<leader>K", function()
-	local winid = require("ufo").peekFoldedLinesUnderCursor()
-	if not winid then
-		-- choose one of coc.nvim and nvim lsp
-		vim.fn.CocActionAsync("definitionHover") -- coc.nvim
-		vim.lsp.buf.hover()
-	end
-end)
-
 keyset("n", "nl", "Go", { desc = "New line at the end of file", noremap = true })
 
 -- save undo history

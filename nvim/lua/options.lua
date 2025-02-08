@@ -1,6 +1,6 @@
 -- Set <space> as the leader key
 vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+vim.g.maplocalleader = "\\"
 
 vim.g.icons_enabled = false
 vim.g.highlighturl_enabled = true
@@ -56,9 +56,9 @@ vim.opt.backspace = "indent,eol,start"
 -- Sets how neovim will display certain whitespace in the editor.
 --  See `:help 'list'`
 --  and `:help 'listchars'`vim.opt.list = true
-local space = "·"
-vim.opt.list = true
-vim.opt.listchars:append({ tab = "| ", trail = space, nbsp = space, lead = space })
+-- local space = "·"
+-- vim.opt.list = true
+-- vim.opt.listchars:append({ trail = space, nbsp = space, lead = space })
 
 vim.opt.iskeyword:append("-")
 vim.opt.colorcolumn = "100"
