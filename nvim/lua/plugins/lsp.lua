@@ -99,7 +99,6 @@ return {
 					vim.keymap.set("n", keys, funcs, { desc = desc })
 				end
 				nmap("<leader>rn", vim.lsp.buf.rename, "Rename")
-				nmap("<leader>ca", vim.lsp.buf.code_action, "Code Action")
 				nmap("gD", vim.lsp.buf.declaration, "Goto Declaration")
 				nmap("<leader>D", vim.lsp.buf.type_definition, "Type Definition")
 				nmap("K", vim.lsp.buf.hover, "Hover Documentation")
