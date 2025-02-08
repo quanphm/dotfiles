@@ -96,18 +96,12 @@ return {
 					if desc then
 						desc = "LSP: " .. desc
 					end
-					vim.keymap.set("n", keys, funcs, { buffer = bufnr, desc = desc })
+					vim.keymap.set("n", keys, funcs, { desc = desc })
 				end
-
 				nmap("<leader>rn", vim.lsp.buf.rename, "Rename")
 				nmap("<leader>ca", vim.lsp.buf.code_action, "Code Action")
-				nmap("gd", require("telescope.builtin").lsp_definitions, "Goto Definition")
 				nmap("gD", vim.lsp.buf.declaration, "Goto Declaration")
-				nmap("gr", require("telescope.builtin").lsp_references, "Goto References")
-				nmap("ii", require("telescope.builtin").lsp_implementations, "Goto Implementation")
 				nmap("<leader>D", vim.lsp.buf.type_definition, "Type Definition")
-				nmap("<leader>ds", require("telescope.builtin").lsp_document_symbols, "Document Symbols")
-				nmap("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "Workspace Symbols")
 				nmap("K", vim.lsp.buf.hover, "Hover Documentation")
 				nmap("<C-s>", vim.lsp.buf.signature_help, "Signature Documentation")
 				nmap("[d", vim.diagnostic.goto_prev, "Go to previous diagnostic message")

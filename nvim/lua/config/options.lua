@@ -56,7 +56,9 @@ vim.opt.backspace = "indent,eol,start"
 -- Sets how neovim will display certain whitespace in the editor.
 --  See `:help 'list'`
 --  and `:help 'listchars'`vim.opt.list = true
-vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+local space = "·"
+vim.opt.list = true
+vim.opt.listchars:append({ tab = "| ", trail = space, nbsp = space, lead = space })
 
 vim.opt.iskeyword:append("-")
 vim.opt.colorcolumn = "100"

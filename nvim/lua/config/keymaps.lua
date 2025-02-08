@@ -28,7 +28,6 @@ keyset("n", "N", "Nzzzv")
 keyset("i", "<C-c>", "<Esc>", { desc = "escape insert mode and save" })
 
 -- windows
--- keyset("n", "<leader>w", "<C-w>w", { desc = "Cycle through windows" })
 keyset("n", "<leader>w_", "<C-w>s", { desc = "Split window horizontally" })
 keyset("n", "<leader>w|", "<C-w>v", { desc = "Split window vertically" })
 keyset("n", "<leader>wx", ":close<CR>", { desc = "Close current split window" })
@@ -80,3 +79,19 @@ keyset("i", ".", ".<C-g>U")
 keyset("i", "!", "!<C-g>U")
 keyset("i", "?", "?<C-g>U")
 keyset("i", ";", ";<C-g>U")
+
+-- fzf-lua
+local fzf = require("fzf-lua")
+
+-- keyset("n", "<leader>?", "<cmd>FzfLua oldfiles<CR>", { desc = "fzf: Find recently opened files" })
+-- keyset("n", "<leader><space>", fzf.buffers, { desc = "fzf: Find existing buffers" })
+keyset("n", "<leader>sf", fzf.files, { desc = "fzf: Search Files" })
+-- keyset("n", "<leader>sh", fzf.helptags, { desc = "fzf: Search Help" })
+-- keyset("n", "<leader>sw", fzf.grep_cword, { desc = "fzf: Search current Word" })
+-- keyset("n", "<leader>sg", fzf.live_grep, { desc = "fzf: Search by Grep" })
+-- keyset("n", "<leader>sk", fzf.keymaps, { desc = "fzf: Search Keymaps" })
+-- keyset("n", "gd", fzf.lsp_definitions, { desc = "Goto Definition" })
+-- keyset("n", "gr", fzf.lsp_references, { desc = "Goto References" })
+-- keyset("n", "gi", fzf.lsp_implementations, { desc = "Goto Implementation" })
+-- keyset("n", "<leader>ds", fzf.lsp_document_symbols, { desc = "Document Symbols" })
+-- keyset("n", "<leader>ws", fzf.lsp_dynamic_workspace_symbols, { desc = "Workspace Symbols" })
