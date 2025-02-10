@@ -15,11 +15,14 @@ require("conform").setup({
 			},
 			command = "rustfmt",
 			args = { "--emit=stdout", "--edition=2021" },
+			cwd = require("conform.util").root_file({
+				"rustfmt.toml",
+				".rustfmt.toml",
+			}),
 		},
 	},
 	notify_on_error = false,
 	format_on_save = {
-		-- I recommend these options. See :help conform.format for details.
 		lsp_format = "fallback",
 		timeout_ms = 500,
 	},

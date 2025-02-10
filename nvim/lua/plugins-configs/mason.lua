@@ -3,6 +3,7 @@ require("mason-lspconfig").setup({
 	ensure_installed = {
 		"html",
 		"cssls",
+		"tailwindcss",
 		"ts_ls",
 		"lua_ls",
 		"jsonls",

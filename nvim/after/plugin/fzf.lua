@@ -28,4 +28,4 @@ vim.keymap.set(
 	":lua require'fzf-lua'.lsp_code_actions({ winopts = {relative='cursor',row=1.01, col=0, height=0.2, width=0.4} })<cr>",
 	{ desc = "Code Actions" }
 )
-vim.keymap.set("n", "<leader><leader>", require("fzf-lua").resume, { desc = "FZF Resume" })
+vim.keymap.set("n", "<leader>r", require("fzf-lua").resume, { desc = "FZF Resume" })

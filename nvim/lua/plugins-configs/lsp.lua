@@ -49,6 +49,10 @@ lspconfig.ts_ls.setup({
 	},
 })
 
+lspconfig.tailwindcss.setup({
+	capabilities = capabilities,
+})
+
 vim.diagnostic.config({
 	virtual_text = {
 		severity = {

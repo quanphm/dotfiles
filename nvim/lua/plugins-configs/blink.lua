@@ -20,11 +20,20 @@ return {
 		},
 	},
 	completion = {
+		accept = {
+			-- experimental auto-brackets support
+			auto_brackets = {
+				enabled = true,
+			},
+		},
 		documentation = { window = { border = "single" } },
 		menu = {
 			border = "single",
+			draw = {
+				treesitter = { "lsp" },
+			},
 		},
-		ghost_text = { enabled = true },
+		ghost_text = { enabled = false },
 		list = {
 			selection = {
 				preselect = function(ctx)
