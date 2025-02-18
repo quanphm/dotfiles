@@ -1,12 +1,19 @@
 require("fzf-lua").setup({
 	previewers = {
 		builtin = {
-			syntax_limit_b = -102400, -- 100KB limit on highlighting files
+			syntax_limit_b = 1024 * 1024,
+		},
+		codeaction = {
+			diff_opts = { ctxlen = 3 },
+		},
+		codeaction_native = {
+			diff_opts = { ctxlen = 3 },
 		},
 	},
 	winopts = {
 		width = 0.6,
 		height = 0.8,
+		backdrop = 100,
 		preview = {
 			hidden = false,
 			vertical = "up:60%",

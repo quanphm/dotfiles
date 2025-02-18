@@ -25,7 +25,7 @@ vim.keymap.set(
 vim.keymap.set(
 	"n",
 	"<leader>ca",
-	":lua require'fzf-lua'.lsp_code_actions({ winopts = {relative='cursor',row=1.01, col=0, height=0.2, width=0.4} })<cr>",
+	":lua require'fzf-lua'.lsp_code_actions({ winopts = {relative='cursor',row=1.01, col=0, height=0.16, width=0.3 }, previewer = false })<cr>",
 	{ desc = "Code Actions" }
 )
 vim.keymap.set("n", "<leader>r", require("fzf-lua").resume, { desc = "FZF Resume" })

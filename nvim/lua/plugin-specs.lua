@@ -128,6 +128,7 @@ return {
 		event = "VeryLazy",
 		opts = require("plugins-configs.trouble"),
 	},
+	{ "folke/snacks.nvim", priority = 1000, lazy = false },
 
 	-- themes
 	{
