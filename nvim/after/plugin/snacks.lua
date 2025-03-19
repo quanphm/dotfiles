@@ -1,4 +1,8 @@
 require("snacks").setup({
 	---@type snacks.Config
-	indent = {},
+	indent = {
+		animate = {
+			enabled = false,
+		},
+	},
 })

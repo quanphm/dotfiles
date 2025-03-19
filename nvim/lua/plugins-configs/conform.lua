@@ -14,7 +14,7 @@ require("conform").setup({
 				description = "A tool for formatting rust code according to style guidelines.",
 			},
 			command = "rustfmt",
-			args = { "--emit=stdout", "--edition=2021" },
+			args = { "--emit=stdout", "--edition=2024" },
 			cwd = require("conform.util").root_file({
 				"rustfmt.toml",
 				".rustfmt.toml",
