@@ -30,6 +30,7 @@ return {
 	},
 	{
 		"nvim-treesitter/nvim-treesitter-context",
+		branch = "master",
 		config = get_config("nvim-treesitter-context"),
 		event = { "BufReadPre", "BufNewFile" },
 	},

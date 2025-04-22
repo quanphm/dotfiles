@@ -26,10 +26,8 @@ require("fzf-lua").setup({
 	},
 	grep = {
 		rg_glob = true,
-		rg_glob_fn = function(query, opts)
-			local regex, flags = query:match("^(.-)%s%-%-(.*)$")
-			return (regex or query), flags
-		end,
+		glob_flag = "--iglob",
+		glob_separator = "%s%-%-",
 	},
 	keymap = {
 		builtin = {
@@ -49,5 +47,8 @@ require("fzf-lua").setup({
 		file_icons = false,
 		color_icons = false,
 		formatter = "path.filename_first",
+	},
+	oldfiles = {
+		include_current_session = true,
 	},
 })
