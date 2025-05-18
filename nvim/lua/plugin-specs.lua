@@ -132,10 +132,15 @@ return {
 	{ "folke/snacks.nvim", priority = 1000, lazy = false },
 
 	-- themes
+	-- {
+	-- 	"rebelot/kanagawa.nvim",
+	-- 	priority = 1000,
+	-- 	config = get_config("theme-kanagawa"),
+	-- },
 	{
-		"rebelot/kanagawa.nvim",
+		"webhooked/kanso.nvim",
 		priority = 1000,
-		config = get_config("themes"),
+		config = get_config("theme-kanso"),
 	},
 
 	-- lsp

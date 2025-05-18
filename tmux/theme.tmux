@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 # colours
-BG="#09090b"
-FG="#d4d4d8"
+BG="#090E13"
+FG="#C5C9C7"
 GRAY="#27272a"
 YELLOW="#eab308"
 
