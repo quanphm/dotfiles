@@ -14,6 +14,7 @@ return {
 	-- search & syntax highlight
 	{
 		"ibhagwan/fzf-lua",
+		commit = "701d9dd9298ef9b991b7302e79b609badff74ed8",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = get_config("fzf"),
 	},
@@ -132,16 +133,16 @@ return {
 	{ "folke/snacks.nvim", priority = 1000, lazy = false },
 
 	-- themes
-	-- {
-	-- 	"rebelot/kanagawa.nvim",
-	-- 	priority = 1000,
-	-- 	config = get_config("theme-kanagawa"),
-	-- },
 	{
-		"webhooked/kanso.nvim",
+		"rebelot/kanagawa.nvim",
 		priority = 1000,
-		config = get_config("theme-kanso"),
+		config = get_config("theme-kanagawa"),
 	},
+	-- {
+	-- 	"webhooked/kanso.nvim",
+	-- 	priority = 1000,
+	-- 	config = get_config("theme-kanso"),
+	-- },
 
 	-- lsp
 	{

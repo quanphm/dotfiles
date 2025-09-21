@@ -1,20 +1,19 @@
-local lspconfig = require("lspconfig")
 local capabilities = require("blink.cmp").get_lsp_capabilities()
 capabilities.textDocument.foldingRange = {
 	dynamicRegistration = false,
 	lineFoldingOnly = true,
 }
 
-lspconfig.lua_ls.setup({ capabilities = capabilities })
+vim.lsp.config("lua_ls", { capabilities = capabilities })
 
-lspconfig.rust_analyzer.setup({
+vim.lsp.config("rust_analyzer", {
 	capabilities = capabilities,
 	settings = {
 		["rust-analyzer"] = {},
 	},
 })
 
-lspconfig.jsonls.setup({
+vim.lsp.config("jsonls", {
 	capabilities = capabilities,
 	settings = {
 		json = {
@@ -40,7 +39,7 @@ lspconfig.jsonls.setup({
 	},
 })
 
-lspconfig.ts_ls.setup({
+vim.lsp.config("ts_ls", {
 	capabilities = capabilities,
 	init_options = {
 		preferences = {
@@ -49,9 +48,7 @@ lspconfig.ts_ls.setup({
 	},
 })
 
-lspconfig.tailwindcss.setup({
-	capabilities = capabilities,
-})
+vim.lsp.config("tailwindcss", { capabilities = capabilities })
 
 vim.diagnostic.config({
 	virtual_text = {

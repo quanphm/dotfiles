@@ -4,14 +4,17 @@ TERM = "xterm-256color"
 [window]
 startup_mode = "Fullscreen"
 padding = { x = 2, y = 2}
+option_as_alt = "Both"
 
 [font]
 size = 16
 
 [font.normal]
-family = "TX Nerd Font"
+# family = "TX Nerd Font"
 # family = "DepartureMono Nerd Font"
-# style = "Regular"
+# family = "BoldPixels Nerd Font"
+family = "BerkeleyMono Nerd Font Mono"
+style = "Regular"
 
 [font.offset]
 x = 0
@@ -31,6 +34,5 @@ render_timer = false
 
 [general]
 import = [
-  "~/.config/alacritty/themes/kanso_zen.toml"
+  "~/.config/alacritty/themes/black_and_white.toml"
 ]
-

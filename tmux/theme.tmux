@@ -1,9 +1,14 @@
 #!/usr/bin/env bash
 
 # colours
-BG="#090E13"
-FG="#C5C9C7"
-GRAY="#27272a"
+# BG="#000000"
+# FG="#00aa33"
+# GRAY="#000000"
+# YELLOW="#00aa33"
+
+BG="#181616"
+FG="#c5c9c5"
+GRAY="#181616"
 YELLOW="#eab308"
 
 # colours for ghostty
