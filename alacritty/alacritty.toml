@@ -7,14 +7,14 @@ padding = { x = 2, y = 2}
 option_as_alt = "Both"
 
 [font]
-size = 16
+size = 14
 
 [font.normal]
-# family = "TX Nerd Font"
+# family = "TX02 Nerd Font"
 # family = "DepartureMono Nerd Font"
 # family = "BoldPixels Nerd Font"
 family = "BerkeleyMono Nerd Font Mono"
-style = "Regular"
+# style = "Condensed"
 
 [font.offset]
 x = 0

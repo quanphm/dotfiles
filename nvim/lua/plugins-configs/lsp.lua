@@ -5,6 +5,7 @@ capabilities.textDocument.foldingRange = {
 }
 
 vim.lsp.config("lua_ls", { capabilities = capabilities })
+vim.lsp.enable("lua_ls")
 
 vim.lsp.config("rust_analyzer", {
 	capabilities = capabilities,
@@ -12,6 +13,7 @@ vim.lsp.config("rust_analyzer", {
 		["rust-analyzer"] = {},
 	},
 })
+vim.lsp.enable("rust_analyzer")
 
 vim.lsp.config("jsonls", {
 	capabilities = capabilities,
@@ -38,6 +40,7 @@ vim.lsp.config("jsonls", {
 		},
 	},
 })
+vim.lsp.enable("jsonls")
 
 vim.lsp.config("ts_ls", {
 	capabilities = capabilities,
@@ -47,8 +50,10 @@ vim.lsp.config("ts_ls", {
 		},
 	},
 })
+vim.lsp.enable("ts_ls")
 
 vim.lsp.config("tailwindcss", { capabilities = capabilities })
+vim.lsp.enable("tailwindcss")
 
 vim.diagnostic.config({
 	virtual_text = {
