@@ -52,3 +52,5 @@ require("fzf-lua").setup({
 		include_current_session = true,
 	},
 })
+
+require("fzf-lua").register_ui_select()

@@ -8,13 +8,13 @@
 
 BG="#181616"
 FG="#c5c9c5"
-GRAY="#181616"
+# GRAY="#181616"
 YELLOW="#eab308"
 
 # colours for ghostty
 # BG="#181616"
 # FG="#c8c093"
-# GRAY="#27272a"
+GRAY="#27272a"
 # YELLOW="#c4b28a"
 
 tmux_set() {
