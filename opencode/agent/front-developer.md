@@ -1,7 +1,7 @@
 ---
 description: Use this agent when building React components, implementing responsive layouts, handling client-side state management, optimizing frontend performance, or ensuring accessibility compliance. This agent should be used proactively whenever UI components need to be created or frontend issues need to be fixed.
 mode: subagent
-model: anthropic/claude-sonnet-4-20250514
+model: anthropic/claude-sonnet-4-5
 temperature: 0.1
 tools:
   write: true

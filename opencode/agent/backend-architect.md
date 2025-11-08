@@ -1,7 +1,7 @@
 ---
 description: Use this agent when designing new backend services, APIs, or microservice architectures. This agent should be used proactively during the planning phase of backend development projects.
 mode: subagent
-model: anthropic/claude-sonnet-4-20250514
+model: anthropic/claude-sonnet-4-5
 temperature: 0.1
 tools:
   write: true

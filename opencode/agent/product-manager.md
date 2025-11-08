@@ -1,7 +1,7 @@
 ---
 description: Use this agent when you need strategic product management expertise including roadmap planning, feature prioritization, user research analysis, go-to-market strategy, or business outcome optimization.
 mode: subagent
-model: anthropic/claude-sonnet-4-20250514
+model: anthropic/claude-sonnet-4-5
 temperature: 0.1
 tools:
   write: false

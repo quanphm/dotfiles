@@ -1,7 +1,7 @@
 ---
 description: Use this agent when you need interface design expertise, user experience optimization, or design system development. This agent should be used proactively when working on user interfaces, design systems, user flows, accessibility improvements, or when you notice opportunities to enhance user experience in the codebase.
 mode: subagent
-model: anthropic/claude-sonnet-4-20250514
+model: anthropic/claude-sonnet-4-5
 temperature: 0.1
 tools:
   write: false
