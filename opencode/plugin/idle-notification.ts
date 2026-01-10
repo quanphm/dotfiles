@@ -3,7 +3,7 @@ import { dirname, join } from "path"
 import { fileURLToPath } from "url"
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
-const SOUND_PATH = join(__dirname, "smb_coin.wav")
+const SOUND_PATH = join(__dirname, "noti-sound.mp3")
 
 export const IdleNotificationPlugin: Plugin = async ({ $ }) => {
   return {
