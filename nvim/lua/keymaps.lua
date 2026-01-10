@@ -59,3 +59,7 @@ keyset("i", ".", ".<C-g>U")
 keyset("i", "!", "!<C-g>U")
 keyset("i", "?", "?<C-g>U")
 keyset("i", ";", ";<C-g>U")
+
+-- copy file path/directory to clipboard
+keyset("n", "\\cf", ':let @+ = expand("%:p")<CR>', { desc = "Copy file path" })
+keyset("n", "\\cd", ':let @+ = expand("%:p:h")<CR>', { desc = "Copy directory path" })
