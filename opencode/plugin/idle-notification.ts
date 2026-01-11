@@ -11,7 +11,7 @@ export const IdleNotificationPlugin: Plugin = async ({ $ }) => {
       if (event.type === "session.idle") {
         const sessionId = event.properties.sessionID ?? "Unknown"
 
-        await $`afplay -v 0.4 ${SOUND_PATH}`
+        await $`afplay -v 0.3 ${SOUND_PATH}`
 
         // show macOS notification (terminal-notifier preferred, osascript fallback)
         const message = `${sessionId} is now idle/complete`
