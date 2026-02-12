@@ -55,6 +55,9 @@ vim.lsp.enable("ts_ls")
 vim.lsp.config("tailwindcss", { capabilities = capabilities })
 vim.lsp.enable("tailwindcss")
 
+vim.lsp.config("oxlint", { capabilities = capabilities })
+vim.lsp.enable("oxlint")
+
 vim.diagnostic.config({
 	virtual_text = {
 		severity = {

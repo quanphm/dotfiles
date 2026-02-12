@@ -51,7 +51,9 @@ local filetypes = {
 for i = 1, #filetypes do
 	local ft = filetypes[i]
 	require("conform").formatters_by_ft[ft] = function(buffnr)
-		if get_formatter_info("biome", buffnr).available then
+		if get_formatter_info("oxfmt", buffnr).available then
+			return { "oxfmt" }
+		elseif get_formatter_info("biome", buffnr).available then
 			return { "biome-check", "biome" }
 		else
 			return { "prettierd", "prettier", stop_after_first = true }

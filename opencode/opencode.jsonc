@@ -2,6 +2,9 @@
   "$schema": "https://opencode.ai/config.json",
   "autoupdate": true,
   "model": "anthropic/claude-sonnet-4-5",
+  "plugin": [
+    "opencode-anthropic-auth@0.0.13"
+  ],
   "mcp": {
     "context7": {
       "type": "remote",
@@ -11,10 +14,40 @@
         "CONTEXT7_API_KEY": "{env:CONTEXT7_KEY}"
       }
     },
+    "convex": {
+      "type": "local",
+      "enabled": true,
+      "command": [
+        "npx",
+        "-y",
+        "convex@latest",
+        "mcp",
+        "start"
+      ]
+    },
     "traefik": {
       "type": "remote",
       "url": "https://mcp.skyanlabs.io/mcp",
-      "enabled": true
+      "enabled": true,
+    },
+    "tanstack": {
+      "type": "local",
+      "enabled": true,
+      "command": [
+        "npx",
+        "-y",
+        "@tanstack/cli",
+        "mcp"
+      ]
+    },
+    "playwriter": {
+      "type": "local",
+      "enabled": true,
+      "command": [
+        "npx",
+        "-y",
+        "playwriter@latest"
+      ]
     }
   },
 }
