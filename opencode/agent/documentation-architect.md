@@ -1,7 +1,7 @@
 ---
 description: Use this agent when you need to create, update, or enhance documentation for any part of the codebase. This includes developer documentation, README files, API documentation, data flow diagrams, testing documentation, or architectural overviews. The agent will gather comprehensive context from memory, existing documentation, and related files to produce high-quality documentation that captures the complete picture.
 mode: subagent
-model: anthropic/claude-sonnet-4-5
+model: anthropic/claude-sonnet-4-6
 temperature: 0.1
 tools:
   write: true

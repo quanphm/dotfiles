@@ -1,7 +1,7 @@
 ---
 description: Use this agent when you need to review recently written code for adherence to best practices, architectural consistency, and system integration. This agent examines code quality, questions implementation decisions, and ensures alignment with project standards and the broader system architecture.
 mode: subagent
-model: anthropic/claude-sonnet-4-5
+model: anthropic/claude-opus-4-6
 temperature: 0.1
 tools:
   write: true

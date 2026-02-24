@@ -1,7 +1,7 @@
 ---
 description: Use this agent when working with Electric-SQL sync engine and TanStack DB for local-first, real-time sync applications. This agent should be used proactively when implementing data synchronization, shapes, live queries, optimistic mutations, and building reactive offline-first applications.
 mode: subagent
-model: anthropic/claude-sonnet-4-5
+model: anthropic/claude-sonnet-4-6
 temperature: 0.1
 tools:
   write: true

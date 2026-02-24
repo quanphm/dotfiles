@@ -1,7 +1,7 @@
 ---
 description: Use this agent when working with TanStack libraries (Query, Router, Table, Form, Virtual, DB). This agent should be used proactively when implementing data fetching, routing, complex tables, forms, or reactive data stores with TanStack ecosystem.
 mode: subagent
-model: anthropic/claude-sonnet-4-5
+model: anthropic/claude-sonnet-4-6
 temperature: 0.1
 tools:
   write: true
