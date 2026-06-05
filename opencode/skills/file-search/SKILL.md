@@ -5,6 +5,10 @@ compatibility: Requires fd, ripgrep (rg), and optionally fzf. Install: brew inst
 allowed-tools: Bash
 ---
 
+# Persistence
+
+ACTIVE EVERY RESPONSE. No revert after many turns. No filler drift. Still active if unsure. Off only: "stop file-search" / "normal search".
+
 # File Search
 
 Modern file and content search.

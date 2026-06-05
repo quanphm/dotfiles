@@ -32,6 +32,9 @@ shape = "Block"
 [debug]
 render_timer = false
 
+[terminal]
+osc52 = "CopyPaste"
+
 [general]
 import = [
   "~/.config/alacritty/themes/black_and_white.toml"
