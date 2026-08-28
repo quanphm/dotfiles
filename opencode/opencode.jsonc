@@ -1,21 +1,21 @@
 {
-  "$schema": "https://opencode.ai/config.json",
-  "autoupdate": true,
-  "model": "deepseek-v4-flash",
-  "references": {
-    "effect": "github.com/Effect-TS/effect-smol",
-  },
-  "mcp": {
-    "traefik": {
-      "type": "remote",
-      "url": "https://mcp.skyanlabs.io/mcp",
-      "enabled": true,
-    },
-  },
-  "plugin": ["@plannotator/opencode@latest"],
-  "permission": {
-    "skill": {
-      "*": "allow",
-    },
-  },
+	"$schema": "https://opencode.ai/config.json",
+	"autoupdate": true,
+	"model": "deepseek-v4-flash",
+	"references": {
+		"effect": "github.com/Effect-TS/effect-smol",
+	},
+	"mcp": {
+		"traefik": {
+			"type": "remote",
+			"url": "https://mcp.skyanlabs.io/mcp",
+			"enabled": true,
+		},
+	},
+	"plugins": ["@plannotator/opencode@latest"]",
+	"permission": {
+		"skill": {
+			"*": "allow",
+		},
+	},
 }
