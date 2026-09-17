@@ -131,6 +131,14 @@ vim.lsp.config("oxlint", {
 vim.lsp.enable("oxlint")
 
 vim.diagnostic.config({
+	signs = {
+		text = {
+			[vim.diagnostic.severity.ERROR] = "💥",
+			[vim.diagnostic.severity.WARN] = "👀",
+			[vim.diagnostic.severity.HINT] = "🪄",
+			[vim.diagnostic.severity.INFO] = "📖",
+		},
+	},
 	virtual_text = {
 		severity = {
 			vim.diagnostic.severity.ERROR,
@@ -139,21 +147,6 @@ vim.diagnostic.config({
 	},
 	severity_sort = true,
 })
-
-local signs = {
-	-- Error = "󰅚 ",
-	-- Warn = "󰳦 ",
-	-- Hint = "󱡄 ",
-	-- Info = " ",
-	Error = "💥",
-	Warn = "👀",
-	Hint = "🪄",
-	Info = "📖",
-}
-for type, icon in pairs(signs) do
-	local hl = "DiagnosticSign" .. type
-	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = nil })
-end
 
 -- keymaps (single lifecycle point with the config above)
 local nmap = function(keys, funcs, desc)
