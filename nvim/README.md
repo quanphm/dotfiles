@@ -158,8 +158,18 @@ vsplit / split / tab, `<C-p>` preview, `<C-c>` close, `<C-r>` refresh,
   text objects `of` / `if` function, `oc` / `ic` class; moves `]m` / `[m`,
   `]]` / `[[`, `]M` / `[M`, `][` / `[]`.
 - **Comment.nvim**: `gcc` line, `gbc` block, `gc` / `gb` operator.
-- **surround**: `ys` add, `ds` delete, `cs` change (bare `ds` is distinct
-  from `<leader>ds` document symbols).
+- **surround** (`ys` add, `ds` delete, `cs` change; bare `ds` is distinct
+  from `<leader>ds` document symbols):
+  | Before | Command | After |
+  |---|---|---|
+  | `surr*ound_words` | `ysiw)` | `(surround_words)` |
+  | `surr*ound_words` | `ysiw(` | `( surround_words )` |
+  | `*make strings` | `ys$"` | `"make strings"` |
+  | `[delete ar*ound me!]` | `ds]` | `delete around me!` |
+  | `remove <b>HTML t*ags</b>` | `dst` | `remove HTML tags` |
+  | `'change quot*es'` | `cs'"` | `"change quotes"` |
+  | `<b>or tag* types</b>` | `csth1<CR>` | `<h1>or tag types</h1>` |
+  | `delete(functi*on calls)` | `dsf` | `function calls` |
 - **mini.pairs / mini.ai**: autopairs on input; `a` / `i` text objects
   (`aa` / `ia` argument, `af` / `if` function, plus brackets/quotes/tag).
 - **tmux-navigator**: `<C-h>` / `<C-j>` / `<C-k>` / `<C-l>` move across
