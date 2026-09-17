@@ -102,11 +102,30 @@ return {
 	{ "echasnovski/mini.pairs", version = "*", config = true },
 	{ "echasnovski/mini.ai", version = "*", config = true },
 	{ "numToStr/Comment.nvim", event = "VeryLazy" },
-	{ "tpope/vim-fugitive", event = "VeryLazy" },
+	{
+		"tpope/vim-fugitive",
+		keys = {
+			{ "<leader>gs", "<cmd>Git<cr>", desc = "Fugitive: Status" },
+			{ "<leader>gc", "<cmd>Git commit<cr>", desc = "Fugitive: Commit" },
+			{ "<leader>gp", "<cmd>Git push<cr>", desc = "Fugitive: Push" },
+			{ "<leader>gb", "<cmd>Git blame<cr>", desc = "Fugitive: Blame" },
+		},
+	},
 	{ "mbbill/undotree", keys = { { "<leader>u", vim.cmd.UndotreeToggle, desc = "UndoTree: Toggle" } } },
 	{ "christoomey/vim-tmux-navigator", event = "VeryLazy" },
 	{ "tpope/vim-repeat", event = "VeryLazy" },
-	{ "folke/zen-mode.nvim" },
+	{
+		"folke/zen-mode.nvim",
+		keys = {
+			{
+				"<leader>z",
+				function()
+					require("zen-mode").toggle()
+				end,
+				desc = "Zen Mode: Toggle",
+			},
+		},
+	},
 	{ "nvim-tree/nvim-web-devicons" },
 	{
 		"echasnovski/mini.icons",
@@ -149,6 +168,9 @@ return {
 		"williamboman/mason.nvim",
 		lazy = false,
 		config = true,
+		keys = {
+			{ "<leader>cm", "<cmd>Mason<cr>", desc = "Mason: Open Dashboard" },
+		},
 	},
 	{ "williamboman/mason-lspconfig.nvim" },
 	{

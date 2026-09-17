@@ -115,13 +115,55 @@ vsplit / split / tab, `<C-p>` preview, `<C-c>` close, `<C-r>` refresh,
 | `zr` / `zm` | open / close folds by kind |
 | `<leader>K` | peek folded lines (falls back to hover) |
 
-## spectre / undotree (spec-level `keys=` in `lua/plugin-specs.lua`)
+## spectre / undotree / zen-mode / mason (spec-level `keys=` in `lua/plugin-specs.lua`)
 
 | Keys | Action |
 |---|---|
 | `<leader>sr` | replace in files (spectre) |
 | `<leader>u` | toggle undotree (loads plugin on first press) |
+| `<leader>z` | toggle zen mode (loads plugin on first press) |
+| `<leader>cm` | open Mason dashboard |
 
-No custom keymaps: gitsigns, lualine, blink, treesitter, surround,
-mini.pairs/ai, comment, fugitive, tmux-navigator, repeat, zen-mode,
-fidget, mason, devicons, mini.icons, spectre setup itself.
+## gitsigns (`lua/plugins-configs/gitsigns.lua`, buffer-local, `Gitsigns: `-prefixed)
+
+| Keys | Action |
+|---|---|
+| `]c` / `[c` | next / prev hunk (falls back to diff navigation) |
+| `<leader>hs` | stage hunk (works on visual selection) |
+| `<leader>hr` | reset hunk (works on visual selection) |
+| `<leader>hS` | stage buffer |
+| `<leader>hu` | undo stage hunk |
+| `<leader>hR` | reset buffer |
+| `<leader>hp` | preview hunk |
+| `<leader>hb` | blame line (full) |
+| `<leader>hd` / `<leader>hD` | diff this / diff this against `~` |
+| `ih` | select hunk (operator/visual) |
+
+## fugitive (spec-level `keys=`, loads on first press)
+
+| Keys | Action |
+|---|---|
+| `<leader>gs` | `:Git` status |
+| `<leader>gc` | `:Git commit` |
+| `<leader>gp` | `:Git push` |
+| `<leader>gb` | `:Git blame` |
+
+## Plugin defaults (no repo config — documented, not mapped)
+
+- **blink** (`preset = "default"` in `plugins-configs/blink.lua`):
+  `<C-space>` trigger, `<C-n>` / `<C-p>` navigate, `<C-y>` / `<CR>` accept,
+  `<C-e>` cancel, `<Tab>` / `<S-Tab>` snippet jump.
+- **treesitter** (`plugins-configs/nvim-treesitter.lua`): incremental selection
+  with `<C-space>` (init/increment), `<C-s>` scope, `<C-bs>` decrement;
+  text objects `of` / `if` function, `oc` / `ic` class; moves `]m` / `[m`,
+  `]]` / `[[`, `]M` / `[M`, `][` / `[]`.
+- **Comment.nvim**: `gcc` line, `gbc` block, `gc` / `gb` operator.
+- **surround**: `ys` add, `ds` delete, `cs` change (bare `ds` is distinct
+  from `<leader>ds` document symbols).
+- **mini.pairs / mini.ai**: autopairs on input; `a` / `i` text objects
+  (`aa` / `ia` argument, `af` / `if` function, plus brackets/quotes/tag).
+- **tmux-navigator**: `<C-h>` / `<C-j>` / `<C-k>` / `<C-l>` move across
+  vim/tmux splits.
+
+No keymaps by design: lualine, fidget, mason-lspconfig, devicons,
+mini.icons, vim-repeat (all libraries or UI with command interfaces).
