@@ -27,3 +27,8 @@ require("oil").setup({
 	},
 	skip_confirm_for_simple_edits = true,
 })
+
+-- keymap (single lifecycle point with setup above)
+vim.keymap.set("n", "<leader>pv", function()
+	require("oil").open()
+end, { desc = "Show directory listing", silent = true })

@@ -97,13 +97,13 @@ return {
 		event = { "BufWritePre" },
 		cmd = "ConformInfo",
 	},
-	{ "kevinhwang91/nvim-ufo", dependencies = { "kevinhwang91/promise-async" }, event = "VeryLazy" },
-	{ "ThePrimeagen/harpoon", dependencies = { "nvim-lua/plenary.nvim" }, event = "VeryLazy" },
-	{ "echasnovski/mini.pairs", version = "*" },
-	{ "echasnovski/mini.ai", version = "*" },
+	{ "kevinhwang91/nvim-ufo", dependencies = { "kevinhwang91/promise-async" }, event = "VeryLazy", config = get_config("ufo") },
+	{ "ThePrimeagen/harpoon", dependencies = { "nvim-lua/plenary.nvim" }, event = "VeryLazy", config = get_config("harpoon") },
+	{ "echasnovski/mini.pairs", version = "*", config = true },
+	{ "echasnovski/mini.ai", version = "*", config = true },
 	{ "numToStr/Comment.nvim", event = "VeryLazy" },
 	{ "tpope/vim-fugitive", event = "VeryLazy" },
-	{ "mbbill/undotree", event = "VeryLazy" },
+	{ "mbbill/undotree", keys = { { "<leader>u", vim.cmd.UndotreeToggle, desc = "UndoTree: Toggle" } } },
 	{ "christoomey/vim-tmux-navigator", event = "VeryLazy" },
 	{ "tpope/vim-repeat", event = "VeryLazy" },
 	{ "folke/zen-mode.nvim" },
@@ -128,9 +128,9 @@ return {
 	{
 		"folke/trouble.nvim",
 		event = "VeryLazy",
-		opts = require("plugins-configs.trouble"),
+		config = get_config("trouble"),
 	},
-	{ "folke/snacks.nvim", priority = 1000, lazy = false },
+	{ "folke/snacks.nvim", priority = 1000, lazy = false, config = get_config("snacks") },
 
 	-- themes
 	{

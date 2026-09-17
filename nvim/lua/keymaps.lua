@@ -63,3 +63,6 @@ keyset("i", ";", ";<C-g>U")
 -- copy file path/directory to clipboard
 keyset("n", "\\cf", ':let @+ = expand("%:p")<CR>', { desc = "Copy file path" })
 keyset("n", "\\cd", ':let @+ = expand("%:p:h")<CR>', { desc = "Copy directory path" })
+
+-- plugin manager dashboard (lazy is bootstrapped in init.lua, no owning module)
+keyset("n", "<leader>l", ":Lazy<CR>", { silent = true, desc = "Lazy: Open Dashboard" })

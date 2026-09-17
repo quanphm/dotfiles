@@ -1,6 +1,7 @@
 local mark = require("harpoon.mark")
 local ui = require("harpoon.ui")
 
+-- keymaps (single lifecycle point with the requires above)
 vim.keymap.set("n", "<leader>a", mark.add_file)
 vim.keymap.set("n", "<leader>n", ui.toggle_quick_menu)
 
