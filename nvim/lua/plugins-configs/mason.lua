@@ -4,7 +4,7 @@ require("mason-lspconfig").setup({
 		"html",
 		"cssls",
 		"tailwindcss",
-		"ts_ls",
+		"ts_ls", -- fallback for pre-7 workspaces; TS 7+ uses workspace `tsc`, no Mason package needed
 		"lua_ls",
 		"jsonls",
 		"bashls",
