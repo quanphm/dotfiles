@@ -1,7 +1,13 @@
 require("fzf-lua").setup({
 	previewers = {
+		bat = {
+			args = "--color=always --style=numbers,changes",
+		},
 		builtin = {
 			syntax_limit_b = 1024 * 1024,
+			treesitter = {
+				enabled = false,
+			},
 		},
 		codeaction = {
 			diff_opts = { ctxlen = 3 },
@@ -11,17 +17,24 @@ require("fzf-lua").setup({
 		},
 	},
 	winopts = {
-		width = 0.6,
+		width = 0.8,
 		height = 0.8,
 		backdrop = 100,
+		treesitter = {
+			enabled = false,
+		},
 		preview = {
+			default = "bat",
+			border = "border-bottom",
 			hidden = false,
 			vertical = "up:60%",
 			horizontal = "right:50%",
 			layout = "vertical",
 			flip_columns = 100,
-			delay = 0,
-			winopts = { number = false },
+			delay = 20,
+			winopts = {
+				number = true,
+			},
 		},
 	},
 	grep = {
