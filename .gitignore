@@ -8,6 +8,8 @@ nvm
 caddy
 homebrew
 gh
+tools
+swiftpm
 
 .env
 .DS_Store

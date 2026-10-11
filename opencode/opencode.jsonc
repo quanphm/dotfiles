@@ -3,12 +3,28 @@
   "autoupdate": true,
   "model": "deepseek-v4-flash",
   "mcp": {
-    "traefik": {
-      "type": "remote",
-      "url": "https://mcp.skyanlabs.io/mcp",
-      "enabled": true,
+    "servers": {
+      "traefik": {
+        "type": "remote",
+        "url": "https://mcp.skyanlabs.io/mcp",
+        "enabled": true,
+      },
     },
   },
+  "websearch": {
+    "provider": "exa",
+  },
   "plugins": ["@plannotator/opencode@latest"],
-  "permission": [{ "action": "skill", "resource": "*", "effect": "allow" }],
+  "permission": [
+    {
+      "action": "skill",
+      "resource": "*",
+      "effect": "allow",
+    },
+    {
+      "action": "websearch",
+      "resource": "*",
+      "effect": "allow",
+    },
+  ],
 }
